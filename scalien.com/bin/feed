@@ -1,0 +1,27 @@
+# dir path and file path
+F="blog/feed.xml"
+
+# create empty post file
+rm -Rf $F
+touch $F
+
+# insert head
+cat frame/feed_head.xml >> $F
+
+for f in `ls -r posts/post*.html` ; do
+        echo "Creating feed $f..."
+
+	echo "<item>" >> $F
+	echo "<title>"`bin/title $f`"</title>" >> $F
+	echo "<link>http://bytepawn.com/"`bin/url $f`"</link>" >> $F
+	echo "<guid isPermaLink='false'>http://bytepawn.com/"`bin/url $f`"</guid>" >> $F
+	echo "<pubDate>"`bin/rfcdate $f`"</pubDate>" >> $F
+	echo "<dc:creator>Marton Trencseni</dc:creator>" >> $F
+	echo "<content:encoded><![CDATA[<p>" >> $F
+	bin/postbody $f | sed 's_^$_\</p\>\<p\>_' >> $F
+	echo "</p>]]></content:encoded>" >> $F
+	echo "</item>" >> $F
+done
+
+# insert tail
+cat frame/feed_tail.xml >> $F

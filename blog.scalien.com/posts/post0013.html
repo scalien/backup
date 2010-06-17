@@ -1,0 +1,43 @@
+Keyspace Roadmap
+
+keyspace-roadmap
+
+2010-03-31
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+As <a href="http://groups.google.com/group/keyspace/browse_thread/thread/f8139f0a1f439a55">Jon Stephens pointed out on the Keyspace Google Group</a>, it's time for us to write a Keyspace roadmap.
+
+First, where is <a href="http://scalien.com">Scalien</a>, the company behind Keyspace heading?
+
+Scalien was founded in 2009 January by Attila and myself, and we're still a 2-man operation. We are currently in the process of turning Keyspace into a product. This is a long and bumpy road and we're nowhere near the end. We're working with a handful or partners and potential partners identifying the use-cases where Keyspace (or something Keyspace-based) makes sense. We also have a number of other projects, for example <a href="http://mediafilter.hu">Mediafilter</a> is a hungarian social media monitoring service, also in the process of <a href="http://en.wiktionary.org/wiki/productization">productization</a>.
+
+Scalien is currently not making a profit, we're bootstrapping with out own money and projects. Things are looking up, it looks like we will be small-bussiness-profitable by the end of 2010. Scalien has no venture capital, nor am I planning to pursue this until we have a clear product strategy with a few sales to show for Keyspace.
+
+As a final note, recently a company called <a href="http://wandisco.com">WANdisco</a> started followning the <a href="http://twitter.com/scalien">Scalien user on Twitter</a>. It turns out WANDisco is a company selling Paxos-based SVN and CVS replication, they've been at it since 5+ years and they seem fairly successful. I've checked out their product, it looks great. Replicating SVN has occured to me in the past, I've even sent our a project proposal about it a year ago to a company I worked for that uses SVN and suffers from downtimes (I didn't know about WANdisco then). We're not going to compete with WANdisco, but they're a good use-case showing that Paxos-based replication can be turned into a product.
+MARKER
+
+Now, on to Keyspace features. First a bulleted list:
+
+<span style="text-decoration: underline">Big Things</span>
+<ul>
+<li>storage engine</li>
+<li>data model</li>
+<li>transaction support</li>
+<li>dynamic cluster reconfiguration</li>
+<li>web admin console</li>
+</ul>
+
+<span style="text-decoration: underline">Little Things</span>
+<ul>
+<li>Java, PHP client (done, need to add documentation)</li>
+<li>Ruby client (almost done)</li>
+<li>.NET client</li>
+<li>Linux distro packages</li>
+</ul>
+
+Storage engine and data model: I've been promising a storage engine for more than 6 months now, and there are 2 obstacles in my way: first, I keep getting distracted by other Keyspace issues, and second, writing a storage engine requires knowledge of the data model that it must support. So these two tasks are actually interrelated. I feel the present barebones key-value data model in Keyspace is not enough, but we have yet to figure out what the right model is (Key-value on steroids like Bigtable? STL over the network like Redis? Relational?). So this is currently in waiting-for-the-spark or waiting-for-the-bussiness-use-case mode.
+
+Transaction support: has been requested a number of times, and I agree that it would make sense, and it could be added to the current Keyspace codebase in about a month. I plan to do this real soon now.
+
+Dynamic cluster reconfiguration and web admin console: these features have been requested by clients, so they will come out sometime in 2010, most likely around summer.

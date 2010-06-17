@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bin/make
+rm -Rf /var/www/www.scalien.hu/*
+cp -R site/* /var/www/www.scalien.hu/

@@ -1,0 +1,4 @@
+F=`ls -l posts/post* |tail -1 | awk '{ print $8 }'| awk -F. '{ printf("post%.4d.html\n", substr($1, 11, 4) + 1) }'`
+echo -e "Nice Title\n\nnice-title\n\n`date +%Y/%m/%d`\n\n<a href=\"http://blog.scalien.com/ecard/mtrencseni\">Marton Trencseni</a>\n\nHeadline paragraph\nMARKER\n\nRest of article" > posts/$F
+vi posts/$F
+echo "Created posts/$F"

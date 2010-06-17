@@ -1,0 +1,24 @@
+Scaliens! Scaliens! Scaliens!
+
+scaliens-scaliens-scaliens
+
+2009/06/02
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+Welcome to the Scalien Blog!
+
+<a href="http://scalien.com">Scalien</a> was formalized as an LLC in Janurary of 2009 by <a href="/ecard/mtrencseni">Marton Trencseni</a> and <a href="/ecard/agazso">Attila Gazso</a>. Our goal is to create a distributed stack of open-source components, enabling developers to create scalable, highly-available applications able to meet their customer's expectations. Our products fit in with the 'cloud computing' paradigm, although we're not looking to become cloud providers. More precisely, sites looking to become cloud providers in the future will be looking for basic distributed software such as databases and filesystems to run their own infrastructure on.
+MARKER
+
+<center>
+<img src="http://scalien.com/images/egg.jpg" />
+<img src="http://scalien.com/images/egg.jpg" />
+<img src="http://scalien.com/images/egg.jpg" />
+</center>
+
+Over the last 6 months, we've been busy with the basic building block of our distributed stack, a replicated, highly-available key-value store called <a href="http://scalien.com">Keyspace</a>. Keyspace has similarities to <a href="http://labs.google.com/papers/chubby.html">Google's Chubby</a> server, the most important being that both use Leslie Lamport's Paxos distributed consensus algorithm as the basic primitive. The first public beta of Keyspace is available for download under the <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html">Affero GPL license (AGPL)</a>. To the best of our knowledge, Keyspace is the only  consistently replicated (Paxos-based) high-performance key-value store on the market.
+
+Once the dust settles, we will begin to implement the second layer of our stack, which will add the essential property of scalability (in Keyspace, all nodes store the same data). This product will most likely be called Keyscale, and will also be licensed under the AGPL. We hope to have an early version of Keyscale finished at the end of 2009, or early 2010. Then, we'll get back to our original idea, and use these technologies to create a useful, general-purpose distributed filesystem.
+
+Back to work.

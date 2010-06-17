@@ -1,0 +1,3 @@
+bin/make
+rm -Rf /var/www/blog.scalien.com/*
+cp -R blog/* /var/www/blog.scalien.com/

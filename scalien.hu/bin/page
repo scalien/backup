@@ -1,0 +1,22 @@
+# dir path and file path
+P="site/"`bin/urltitle $1`
+F=$P"/index.html"
+
+# create nice subdirectory
+mkdir -p $P
+
+# create empty file
+rm -Rf $F
+touch $F
+
+# insert head
+echo "<html><head>" >> $F
+echo "<title>Scalien - "`bin/title $1`"</title>" >> $F
+cat frame/page_head.html >> $F
+
+# insert page body 
+echo "<h1>"`bin/title $1`"</h1><br/>" >> $F
+bin/pagebody $1 | sed 's_^$_\</p\>\<p\>_' | sed "s/@VERSION/$VERSION/g" >> $F
+
+# insert tail
+cat frame/page_tail.html >> $F

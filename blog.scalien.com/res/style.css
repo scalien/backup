@@ -1,0 +1,164 @@
+body {
+	background-color: #FFFFFF;
+	margin: 30px;
+	text-align: center;
+}
+
+#content {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+#topbar {
+	background: url(images/nt.gif) repeat;
+	margin: 1em auto;
+}
+
+#topbar a {
+	color: rgb(37, 84, 189);
+}
+
+#blogtitle {
+	font-family: Century Gothic, Corbel, Eras Light ITC;
+	font-size: 46px;
+}
+
+#blogtitle a {
+	color: black;
+	text-decoration: none;
+}
+
+#slogan {
+	vertical-align: middle;
+	font-family: Georgia;
+        font-size: 22px;
+	padding-left: 50px;
+}
+
+#rss_icon {
+	vertical-align: middle;
+	padding-left: 20px;
+}
+
+#post {
+	float: right;
+	width: 700px;
+	margin-right: 35px;
+	padding: 15px;
+	padding-bottom: 0px;
+}
+
+#index {
+	float: right;
+	width: 680px;
+	margin-top: 10px;
+	margin-right: 80px;
+	padding: 15px;
+	padding-bottom: 0px;
+}
+
+h1 {
+	font-size: 34px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+blockquote {
+	font-style: italic;
+	padding-left: 30px;
+}
+
+p blockquote {
+	font-style: italic;
+}
+
+pre {
+	display: block;
+	padding-left: 30px;
+}
+
+span.code {
+	font-family: courier;
+	font-size: 14px;
+}
+
+#index ul {
+	left: 30px;
+	line-height: 150%;
+	list-style-type: square;
+	list-style-image: none;
+}
+
+a {
+	color: rgb(37, 84, 189);
+}
+
+#timestamp {
+	padding-top: 30px;
+	font-size: 12px;
+	color: #808080;
+}
+
+#disqus_thread {
+	padding: 20px;
+}
+
+#sig {
+	color: #808080;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.snip {
+	padding: 10px;
+	padding-left:20px;
+}
+
+.sniplink {
+	font-size: smaller;
+	margin-left: 20px;
+}
+
+/* generated code begin */
+.rbtop div { background: url(images/tl.gif)
+        no-repeat top left; }
+.rbtop { background: url(images/tr.gif)
+        no-repeat top right; }
+.rbbot div { background: url(images/bl.gif)
+        no-repeat bottom left; }
+.rbbot { background: url(images/br.gif)
+        no-repeat bottom right; }
+.rbtop div, .rbtop, .rbbot div, .rbbot {
+width: 100%;
+height: 7px;
+font-size: 1px;
+}
+.rbcontent { margin: 0 7px; margin:20px; }
+/* generated code end */
+
+div.copyright {
+	clear: both;
+	padding-top: 30px;
+	text-align: center;
+	color: gray;
+	font-family: georgia;
+	font-size: 10px;
+}
+
+#whoarewe {
+        float: left;
+        clear: left;
+        position: relative;
+        top: 0px;
+        width: 200px;
+        background: url(images/nt.gif) repeat;
+        margin: 1em auto;
+        font-family: georgia;
+}

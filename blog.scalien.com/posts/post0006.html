@@ -1,0 +1,17 @@
+Keyspace Windows Beta
+
+keyspace-windows-beta
+
+2010/01/08
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+As promised, we are releasing the beta Windows port of Keyspace this week.
+
+<a href="http://scalien.com/releases/keyspace/keyspace-win-beta.zip">Click here to download the Keyspace Windows beta</a>.
+
+This is a non-versioned beta release, which will be followed by a regular 1.3 release next week after we have done some more testing on <a href="http://aws.amazon.com/">Amazon</a>.
+
+The release includes Visual Studio C++ 2008 Express Edition project files so Windows developers can get straight to work. Also included are the necessary BerkeleyDB include and lib files ('include' and 'lib' folders, respectively). The 'bin' folder contains statically linked binaries in case somebody wants to test it out without compiling. If it doesn't run, you may have to install the appropriate <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&displaylang=en">Visual Studio redistributables</a>, which I put in the 'redist' folder for your convenience.
+
+Technically, the Windows port uses the <a href="http://msdn.microsoft.com/en-us/library/aa365198%28VS.85%29.aspx">Completion Ports API</a> to achieve high-performance network I/O. Thanks to our layered architecture (for platform-independence) we didn't have to modify application logic at all. Based on preliminary testing the performance numbers should be equivalent to the ones in our <a href="http://scalien.com/whitepapers">whitepapers</a>.

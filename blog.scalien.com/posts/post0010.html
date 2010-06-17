@@ -1,0 +1,25 @@
+Keyspace 1.4.1
+
+keyspace-1.4.1
+
+2010/02/17
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+We are releasing Keyspace 1.4.1, a bugfix release, mostly fixing TCP speed issues we were having. It turns out our client protocol was "interfering" with Nagle's algorithm and causing performance problems on some platforms. Also, under Windows we ran into a Windows bug, where if you filled up the socket buffers Windows would use delayed ACKs, which again caused performance issues.
+
+<a href="http://scalien.com/downloads">Download 1.4.1 here.</a>
+
+Here are some performance numbers from a n=3 node Keyspace setup on Windows over a 100Mbit LAN:
+
+VALUE LENGTH = 100 bytes long<br/>
+batch set: 30487 tx/sec<br/>
+single set: 1777 tx/sec<br/>
+batch get: 45662 tx/sec<br/>
+single get: 6734 tx/sec<br/>
+
+VALUE LENGTH = 1000 bytes long<br/>
+batch set: 2443 tx/sec<br/>
+single set: 845 tx/sec<br/>
+batch get: 8888 tx/sec<br/>
+single get: 3137 tx/sec<br/>

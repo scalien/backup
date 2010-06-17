@@ -1,0 +1,41 @@
+Catching up with Keyspace
+
+catching-up-with-keyspace
+
+2010/05/10
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+What happens when a node is lagging behind the others? For example, suppose we have a n=3 cluster, with node 1 and 2 in replication round 50.000, but node 3 is back at round 1.000.
+
+There are two ways for a lagging node to do catch-up in Keyspace.
+MARKER
+
+<ol>
+<li>
+<b>Replicated log catchup</b>
+
+This is the simpler case. If the master node, suppose it's node 1, knows what happened in replication round 1.000 and onward, then it can just replay it for node 3. However, nodes cannot remember replication rounds indefinitely, because their database file would grow indefinitely --- they have to delete old replication rounds. The number of rounds stored is controlled by the (undocumented) configuration setting <span class="code">rlog.cacheSize</span>, which is 100.000 by default. So in this case, the master node would just replay its replicated log to node 3, which would eventually catch up to the majority.
+
+You can see this in action by starting an n=3 configuration with only 2 nodes, and then to send individual <span class="code">SET</span> commands, say 50.000, and then starting up the third node. If you open its HTTP console, and hit refresh in your browser, you will see its replication round increase as it catches up in the background.
+</li>
+<li>
+<b>Database catchup</b>
+
+Database catchup is what happens when Replicated log catchup is not possible, because the majority is too far ahead. In this case, the lagging node will delete its local database and copy over the entire database from the master.
+
+Here we ran into an interesting problem. To ensure the database file's recoverability in case of a crash (and because Paxos requires strong commit semantics), we have to use BerkeleyDB's so called Transactional Data Store, or TDS for short. With TDS however, every read is transactional, whether you like it or not. This poses a problem, because when the master sends the contents of its entire database to the lagging node, it will open a transaction. That transaction, by default, will lock the entire database effectively blocking the master for writes. At first, we tried to use <a href="http://en.wikipedia.org/wiki/Multiversion_concurrency_control">Multiversion Concurrency Control (MVCC)</a> instead of locking. Unfortunately, BDB's MVCC is dead-slow, which again effectively blocks the master.
+
+The solution ended up turning on BDB's <span class="code">DB_READ_UNCOMMITTED</span> flag. This means the database is not locked by the thread sending the database to the lagging node over the network, as we're at the lowest <a href="http://en.wikipedia.org/wiki/Isolation_%28database_systems%29">level of isolation</a>. However, the database may be read in an inconsistent state: it is possible that the database was at replication round 50.000 when we started to send it, but was at 50.100 when we finished, and some of those modification may have been visible to the iterator thread.
+
+We work around this by storing the <span class="code">paxosID</span> (replication round) and a per-round <span class="code">commandID</span> with each <span class="code">key => value</span> pair when it is written. This is also sent over to the lagging node. Finally, the lagging node will set its paxosID to the round when the catch up started, 50.000 for the example above. Then, using regular Replicated log catchup it will receive replication rounds 50.000 - 50.100, and using the paxosID and commandID's in its database, it knows which changes it must peform, and which changes were already in its database due to the <span class="code">DB_READ_UNCOMMITTED</span> flag. The actual logic is:
+<pre>
+if (storedPaxosID > paxosID ||
+(storedPaxosID == paxosID && storedCommandID >= commandID))
+	// don't perform command
+</pre>
+</li>
+</ol>
+
+The end-result is a perfect replica, without blocking the master!
+

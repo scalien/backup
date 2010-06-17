@@ -1,0 +1,15 @@
+Keyspace 1.5 - Recommended for Production Usage
+
+keyspace-1.5-recommended-for-production-usage
+
+2010/03/09
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+Great news: we are releasing Keyspace 1.5, the most stable and feature complete version of Keyspace to date. We are very excited as we have reached a point where all issues related to replication and catch-up have been resolved, this version is suitable for general production deployment! Keyspace 1.5 has seen tons of testing on our dedicated test cluster, and it has performed like a charm.
+
+<a href="http://scalien.com/downloads">Download 1.5 here.</a>
+
+For the end-user, the only visible change is the removal of the <i>submit</i> parameter from the commands (such as <i>keyspace_client_set()</i>), since this can be derived from the use of <i>keyspace_client_begin()</i> before the commands are issued in batch.
+
+More good news: we have starting wrapping the C/C++ client library, which itself has reached a very stable state, using <a href="http://www.swig.org">SWIG, the Simplified Wrapper and Interface Generator</a>. We are planning to release fully featured Python, PHP, Java libraries next week. In parallel, we are finally going to write up proper manuals starting today.

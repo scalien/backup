@@ -1,0 +1,20 @@
+Keyspace 1.3 release - stable Windows port
+
+keyspace-1.3.0-release-stable-windows-port
+
+2010-01-18
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+We are releasing Keyspace 1.3, the major addition is a stable Windows port (supports XP, Vista, Seven, Server 2003 and 2008) and includes some minor bugfixes.
+
+<a href="http://scalien.com/downloads">Click here to download Keyspace 1.3</a>. 
+
+<img style="margin-left: 50px;" src="/images/windows_logo.jpg" width="174" />
+
+For this port we had to port our (readyness notification) event based, networking subsystem to Windows' <a href="http://msdn.microsoft.com/en-us/library/aa365198%28VS.85%29.aspx">Completion Ports API</a>, which was more challenging than we expected as the intended use for the API is asynchronous I/O, which is slightly different than our model. After lots of coding and one all-nighter we prevailed! I'll share more details in a later post.
+
+The next big step is getting rid of BerkeleyDB. Coding is already on its way and I'll post some details about our storage engine architecture soon (currently codenamed Blocksmith).
+
+Back to work.
+

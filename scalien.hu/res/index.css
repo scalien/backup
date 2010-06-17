@@ -1,0 +1,78 @@
+a:link {
+	color: rgb(37, 84, 189);
+}
+
+a:visited {
+	color: rgb(37, 84, 189);
+}
+
+img {
+	border: 0;
+}
+
+body {
+	text-align: center;
+}
+
+div.container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+div.logopic {
+	float: left;
+	position: relative;
+	width: 200px;
+}
+
+div.logotxt {
+	float: right;
+	position: relative;
+	top: 20px;
+}
+
+div.separator {
+	clear: both;
+	position: relative;
+	top: 20px;
+	width: 100%;
+	height: 3px;
+	background-color: #E0E0E0;
+}
+
+div.content {
+	clear: both;
+	margin-top: 20px;
+	text-align: center;
+	background:url('images/puzzle.jpg') no-repeat;
+}
+
+div.splashtext {
+	padding-top: 80px;
+}
+
+div.splashpics {
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+div.navbar {
+	margin-top: 30px;
+	padding-top: 20px;
+	width: 905px;
+	height: 57px;
+	font-family: georgia;
+	font-size: 16px;
+	background:url('images/navbar.png') no-repeat;
+}
+
+div.copyright {
+	clear: both;
+	padding-top: 30px;
+	text-align: center;
+	color: gray;
+	font-family: georgia;
+	font-size: 10px;
+}

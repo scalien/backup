@@ -1,0 +1,38 @@
+Keyspace 1.4 Released - Major improvements
+
+keyspace-1.4-released-major-improvements
+
+2010-02-12
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+We released <a href="http://scalien.com/downloads">Keyspace 1.4</a>, which fixes a <i>lot of</i> issues/bugs both in the server and the C/C++ client libraries.
+MARKER
+
+Notable changes in the server:
+<ul>
+<li>Improved stability on Windows<li>
+<li>PaxosLease now uses TCP instead of UDP, in an effort to make master leases last longer</li>
+<li>Servers now explicitly store 100.000 Paxos rounds in their local DB to help lagging nodes, in effect eliminating the need for our previous truncation hack, at the expense of disk space</li>
+<li>More info printed in HTTP hello message</li>
+<li>7 seconds sleep() on startup uses a timer instead of a blocking sleep, making the server responsive during the time</li>
+<li>Max. value size decreased to 100K</li>
+<li>Configuration files have not changed</li>
+<li>Much more...</li>
+</ul>
+Note: Some metadata stored in the database changed, so make sure all your nodes are in sync before switching to 1.4.
+
+Notable changes in the C/C++ client library:
+<ul>
+<li>We rewrote much of the client library</li>
+<li>It now handles failovers in the nodes, without the application having to call the library again</li>
+<li>Application can specify global and master timeouts:</li>
+<li>Global timeout: the client library will return no matter what within this time</li>
+<li>Master timeout: the client library will return if the master is lost and no new master is found within this time</li>
+<li>Failure conditions can be queried from the client library: transport status, connectivity status, timeout status and command status</li>
+<li>Much much more...</li>
+</ul>
+
+We are planning to write up proper documentation on the new client library next week, stay tuned!
+
+A number of people have requested we go on github - thanks for the suggestions - we're discussing it with Attila.

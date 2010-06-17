@@ -1,0 +1,35 @@
+Keyspace 1.0 Beta Release
+
+keyspace-1.0-beta-release
+
+2009/07/15
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+Today <a href="http://scalien.com">we are</a> releasing the <a href="http://scalien.com/keyspace">Keyspace 1.0 Beta</a>. Keyspace is a consistently replicated, highly-available fault-tolerant key-value store. A pictorial explanation <a href="http://scalien.com/keyspace">can be found here</a>.
+MARKER
+
+The relevant links are:
+<ul>
+<li><a href="http://scalien.com/keyspace">Keyspace features at a glance</a></li>
+<li><a href="http://scalien.com/documentation">Documentation</a></li>
+<li><a href="http://scalien.com/whitepapers">Whitepapers</a></li>
+<li><a href="http://scalien.com/downloads">Downloads</a></li>
+<li><a href="http://scalien.com/license">License</a></li>
+<li><a href="http://scalien.com/help">Help</a></li>
+<li><a href="http://scalien.com/faq">FAQ</a></li>
+</ul>
+
+In a few words, <strong>consistent replication</strong> means it's <em>not eventually consistent</em>, it's <em>always consistent</em> or always in-sync. When the server acknowledges an operation, then you can be certain that it has hit the disk on a majority of the nodes and you will never see a state not reflecting that write.
+
+Since Keyspace is replicated, the database is <strong>highly-available and fault-tolerant</strong>. A minority of nodes can fail without the overall database service being affected. This is of course the main feature of any replicated data store: if the cleaning crew accidentally pulls the plug on one of your servers or a disk fails, then your system keeps going without service outage.
+
+Keyspace is a <strong>high-performance</strong>, asynchronous, event-driven C/C++ UNIX server. Even with n=3 replication we can handle 100.000 writes a second on fast Linux PCs with SCSI disks. This is an order of magnitude faster than naive key-value store implementations in Java, Erlang or Python. <a href="http://scalien.com/whitepapers">See the whitepaper for more.</a>
+
+With Keyspace, you have a sensible <strong>upgrade path</strong>. You can use Keyspace in single-server mode, in which case it's reduced to a TCP wrapper around Berkeley DB. Later, you can reconfigure it to use replication. Keyspace has its own TCP protocol, which is used by the client libraries, and a built-in HTTP server and HTTP protocol so you can issue <span class="code">http://localhost/set?key,value</span> type requests using your browser for testing. <a href="http://svn.scalien.com/keyspace/trunk/API">More about the API.</a>
+
+<a href="http://scalien.com/downloads">You can download</a> source code and compile Keyspace or use the Debian package for quick installation and <span class="code">/etc/init.d/</span> sweetness. Included are the usual help files, client libraries and some sample code. Keyspace is distributed under the <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html">Affero GPL license (AGPL)</a>.
+
+What's missing in this release? Currently, our C/C++ client library is production quality. We are finishing up PHP, Python, Java and .NET libraries, the exact order is a function of <a href="http://scalien.com/help">user requests</a>.
+
+This is a beta release, where one of the goals is to gauge user interest. If you find Keyspace interesting or useful, please <a href="http://scalien.com/help">drop us a line</a>.

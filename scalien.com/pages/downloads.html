@@ -1,0 +1,60 @@
+Downloads
+
+downloads
+
+<h1>Downloads</h1>
+
+The latest Keyspace version is @VERSION.
+
+Note that to compile and run Keyspace, your system needs a copy of the freely available BerkeleyDB library. On Debian systems this is automatically handled by the package dependencies. On other systems, please use the packager manager to install BerkeleyDB; it is often called 'libdb', the most current version is 'libdb-4.6'. See the <a href="http://scalien.com/documentation/installation.html">Installation</a> section of the documentation for more.
+
+<h3>Git repository</h3>
+
+The <a href="http://github.com/scalien/keyspace">main git repository</a> is on github. To get it, issue:
+
+<pre>git clone http://github.com/scalien/keyspace.git </pre>
+
+<h3>Debian package</h3>
+
+Currently only Debian 4.0 (etch) packages are available. If you need other versions, <a href="http://scalien.com/help">let us know</a>.
+
+You can <a href="http://debian.scalien.com/pool/main/k/keyspace-server/keyspace-server_@VERSION_i386.deb">download the debian package directly</a> and issue:
+
+<pre>dpkg -i keyspace-server_@VERSION_i386.deb</pre>
+
+After installation, edit the config file and launch it using:
+
+<pre>/etc/init.d/keyspace start</pre>
+
+Alternatively, you can edit your /etc/apt/sources.list and add the following line:
+
+<pre>deb http://debian.scalien.com/ etch main</pre>
+
+Afterwards, issue:
+
+<pre>apt-get update</pre>
+<pre>apt-get install keyspace-server</pre>
+
+<h3>UNIX source package</h3>
+
+If you're looking for the latest <em>stable</em> Keyspace release then the .tgz files are for you. These files are created for every major milestone.
+
+<a href="/releases/keyspace/keyspace-@VERSION.tgz">Download latest release</a>
+
+<a href="/releases/keyspace/">See all releases</a>
+
+Extract the tgz:
+
+<pre>tar xvf keyspace-@VERSION.tgz</pre>
+<pre>make</pre>
+
+See the <a href="http://scalien.com/documentation/installation.html">Installation</a> section of the documentation for more.
+
+<h3>Windows executable and source package</h3>
+
+This is the package you need to run Keyspace under Windows XP and later platforms (XP, Vista, Seven, Server 2003 and 2008) and includes a Visual Studio C++ Express 2008 project file for your coding convenience. Also included are the necessary BerkeleyDB header and library files.
+
+<a href="/releases/keyspace/keyspace-windows-@VERSION.zip">Download latest release</a>
+
+<a href="/releases/keyspace/">See all releases</a>
+

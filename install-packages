@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# This script installs packages for a release
+# Currently we are making the following packages:
+# - tgz of the source tree
+# - Debian 4.0 32bit package
+# - Windows zip archive (source and binary)
+
+if [ "$VERSION" = "" ]; then
+	echo '$VERSION environment variable not set!'
+	exit 1
+fi
+
+
+./install-tgz
+
+# Make debian package
+
+cd /tmp/keyspace-$VERSION
+make deb-install
+make clean
+
+# Before installing packages the Windows binaries must be
+# copied to keyspace-windows/bin!
+
+cd
+cp -r keyspace-windows/* /tmp/keyspace-$VERSION
+
+cd /tmp
+rm -f keyspace-windows-$VERSION.zip
+zip -r keyspace-windows-$VERSION.zip keyspace-$VERSION
+cp keyspace-windows-$VERSION.zip /home/scalien/scalien.com/res/releases/keyspace

@@ -1,0 +1,27 @@
+Keyspace 1.7: new HTTP API, C# client libs
+
+keyspace-1.7-new-http-api-csharp-client-libs
+
+2010/06/17
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+Keyspace 1.7.0 is out the door. Changes include:
+<ol>
+<li>
+New HTTP API: the old comma-separated parameter list is gone, instead you specify named parameters like:
+
+<span class="code">http://localhost:8080/set?key=name&value=mtrencseni</span>
+
+Check out the updated <a href="http://scalien.com/documentation/http_api.html">HTTP API docs</a> for more details.
+</li>
+<li>
+New C# client libs. I haven't written up API docs for it yet, will get to it soon. The <a href="http://scalien.com/releases/keyspace/keyspace-windows-1.7.0.zip">Windows package</a> now includes a bin/csharp folder with two files: <span class="code">keyspace_client.dll</span> and <span class="code">KeyspaceClient.dll</span>. In your C# project, add <span class="code">KeyspaceClient.dll</span> as a reference and make sure <span class="code">keyspace_client.dll</span> is in your project's working directory.
+</li>
+
+<li>
+fixed a bug in SingleKeyspace where commands were not OK'd until a SUBMIT was submitted by the client.
+</li>
+</ol>
+
+Back to work on our secret new scalable database project.

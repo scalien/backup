@@ -1,0 +1,29 @@
+Keyspace 1.1 Release
+
+keyspace-1.1-release
+
+2009/09/09
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+We are releasing version 1.1 of <a href="http://scalien.com/keyspace">Keyspace</a>, our consistently replicated key-value store, a major improvement over 1.0.x.
+
+<ol>
+<li>New PaxosLease algorithm does not require clock synchronization.</li>
+<li>Added COUNT and DIRTYCOUNT commands.</li>
+<li>Added /html/ part to HTTP interface, which pretty prints the list output.</li>
+<li>Added possibility to reverse list direction.</li>
+<li>The http://server:port/ welcome page prints the version number and master information.</li>
+<li>Added database.numReaders config option.</li>
+</ol>
+
+<a href="http://scalien.com/downloads">Download 1.1 here</a>.
+
+The most important is: <b>Keyspace no longer requires clock synchrony!</b>
+This should make Keyspace as a distributed database much more attractive to new users.
+The new PaxosLease algorithm is described in the
+<a href="http://scalien.com/whitepapers/">PaxosLease whitepaper</a>.
+
+In other news, <a href="http://hnwatch.scalien.com">Hacker News Watch</a> runs on Keyspace.
+
+

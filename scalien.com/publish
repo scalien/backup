@@ -1,0 +1,29 @@
+#!/bin/sh
+
+if [ "$VERSION" = "" ]; then
+	echo "VERSION variable is not set!"
+	exit 1
+fi
+
+echo "-------------------------------"
+echo "Assuming Keyspace version $VERSION"
+echo "-------------------------------"
+
+svn export http://svn.github.com/scalien/keyspace.git keyspace
+cp keyspace/doc/PaxosLease/PaxosLease.pdf res/pdf/
+cp keyspace/doc/Keyspace/Keyspace.pdf res/pdf/
+
+rm -Rf res/documentation
+cd keyspace/doc/Sphinx
+make html
+cd ../../..
+mkdir res/documentation
+cp -R keyspace/doc/Sphinx/build/html/* res/documentation/
+rm -Rf keyspace
+
+bin/make
+
+echo $VERSION > site/downloads/latest.txt
+
+rm -Rf /var/www/www.scalien.com/*
+cp -R site/* /var/www/www.scalien.com/

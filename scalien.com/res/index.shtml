@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Scalien</title>
+<meta name="description" content="Scalien company website" />
+<meta name="keywords" content="Scalien, Keyspace, replicated, replication, key, value, store, distributed, open, source, Paxos, highly, available, fault, tolerant, Marton, Trencseni, Attila, Gazso" />
+<link rel="stylesheet" type="text/css" href="index.css" />
+<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body onload="document.getElementById('container').style.display='block';">
+
+<div id="container" class="container" style="display:none">
+
+<div class="topbar">
+<div class="logopic"><img src="images/blocks_small.png" /></div>
+<div class="logotxt"><img src="images/scalien_logo.png" /></div>
+</div>
+
+<div class="separator"><!-- --></div>
+
+<div class="keyspace">
+<a href="/keyspace" class="plainlink">
+<div class="introducing">Introducing Keyspace.</div>
+<img src="images/egg.jpg" border="0" /><img src="images/egg.jpg" border="0" /><img src="images/egg.jpg" border="0" />
+<div class="explanation">
+Keyspace is a consistently replicated,<br/>
+fault-tolerant key-value store.<br/>
+<b>Now available for Windows.</b><br/>
+</a>
+</div>
+
+<div class="insideseparator"><!-- --></div>
+<div class="keyspace_links">
+<a href="/downloads"><div class="downlink"><img src="images/download.png" style="width: 64px" /><br/>Downloads</div></a>
+<a href="/whitepapers"><div class="docslink"><img src="images/pages.png" style="width: 64px" /><br/>Whitepapers</div></a>
+<a href="/about"><div class="execlink"><img src="images/chart_up.png" style="width: 64px" /><br/>Executive<br/>overview</div></a>
+</div>
+
+</div> <!-- keyspace -->
+
+<div class="newsfeed"><div class="rbtop"><div></div></div><div class="rbcontent">
+<b>Scalien Blog</b>&nbsp;&nbsp;<img src="images/cloud_comment.png" style="position:absolute; top: 10px; right:5px;" />
+<br/><br/>
+<div style="border-bottom: 1px dotted #B0B0B0"></div>
+<br/>
+Latest post: 
+<div style="margin-left: 10px;">
+<!--#include file="latest.txt" -->
+</div>
+<br/>
+<a href="http://blog.scalien.com">Visit the blog</a>
+</div><div class="rbbot"><div></div></div></div>
+
+<div class="whoarewe"><div class="rbtop"><div></div></div><div class="rbcontent">
+<b>Who are we?</b>&nbsp;&nbsp;<img src="images/light_bulb.png" style="position:absolute; top: 10px; right:5px;" />
+<br/><br/>
+<div style="border-bottom: 1px dotted #B0B0B0"></div>
+<br/>
+Scalien is a startup developing open-source,
+cutting-edge distributed systems.<br/>
+<a href="/about">More</a>
+<br/><br/>
+<a href="mailto:info@scalien.com">info@scalien.com</a>
+</div><div class="rbbot"><div></div></div></div>
+
+<div class="copyright">
+Copyright &copy; Scalien, 2009-2010. All rights reserved --- Icons courtesy of <a href="http://dryicons.com" style="color: gray">dryicons.com</a>
+</div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9801399-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</html>

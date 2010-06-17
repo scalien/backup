@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$VERSION" = "" ]; then
+	echo '$VERSION environment variable not set!'
+	exit 1
+fi
+
+./install-tgz
+cp -r keyspace-windows/* /tmp/keyspace-$VERSION
+cd /tmp
+zip -r keyspace-windows-$VERSION.zip keyspace-$VERSION
+cp keyspace-windows-$VERSION.zip /home/scalien/scalien.com/res/releases/keyspace

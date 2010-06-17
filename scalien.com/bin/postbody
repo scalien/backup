@@ -1,0 +1,1 @@
+tail -n +7 $1 | grep -v MARKER

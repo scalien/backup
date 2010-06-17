@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$VERSION" = "" ]; then
+	echo '$VERSION environment variable not set!'
+	exit 1
+fi
+
+cd /tmp
+rm -rf keyspace-$VERSION*
+
+#svn export file:///var/lib/svn/keyspace/trunk keyspace-$VERSION
+svn export http://svn.github.com/scalien/keyspace.git keyspace-$VERSION
+tar czvf keyspace-$VERSION.tgz keyspace-$VERSION
+cp keyspace-$VERSION.tgz /home/scalien/scalien.com/res/releases/keyspace

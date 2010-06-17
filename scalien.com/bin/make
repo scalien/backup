@@ -1,0 +1,11 @@
+# clear
+rm -Rf site/*
+
+for f in `ls pages/*.html` ; do
+	echo "Creating page $f..."
+	
+	bin/page $f
+done
+
+# copy resources 
+cp -R res/* site/

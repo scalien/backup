@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Keyspace documentation</title>
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '1.6',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Keyspace documentation" href="#" />
+    <link rel="next" title="1. About Keyspace" href="about.html" /> 
+
+<link rel="stylesheet" type="text/css" href="http://scalien.com/inside.css" />
+<link rel="shortcut icon" href="http://scalien.com/favicon.ico">
+
+  </head>
+  <body>
+
+<body onload="document.getElementById('container').style.display='block';">
+
+<div id="container" class="container" style="display:none">
+
+<div class="topbar">
+<div class="logopic"><a href="http://scalien.com"><img src="http://scalien.com/images/blocks_small.png" /></a></div>
+<div class="logotxt"><a href="http://scalien.com"><img src="http://scalien.com/images/scalien_logo.png" /></a></div>
+</div>
+
+<div class="separator"><!-- --></div>
+
+<div class="menu"><div class="rbtop"><div></div></div><div class="rbcontent">
+<ol class="menulist">
+<li style="padding-top:0px;"><a href="http://scalien.com">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="http://blog.scalien.com">Blog</a></li>
+<li><a href="/keyspace">Keyspace</a></li>
+<ol class="innermenulist">
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/whitepapers">Whitepapers</a></li>
+<li><a href="/downloads">Downloads</a></li>
+<li><a href="/license">License</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/faq">FAQ</a></li>
+</ol>
+</ol>
+</div><div class="rbbot"><div></div></div></div>
+
+<div class="main">
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="about.html" title="1. About Keyspace"
+             accesskey="N">next</a></li>
+        <li><a href="#">home</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="keyspace-documentation">
+<h1>Keyspace documentation<a class="headerlink" href="#keyspace-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<ul>
+<li class="toctree-l1"><a class="reference" href="about.html">1. About Keyspace</a><ul>
+<li class="toctree-l2"><a class="reference" href="about.html#more-help">1.1. More help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference" href="installation.html#installing-on-debian-linux">2.1. Installing on Debian Linux</a></li>
+<li class="toctree-l2"><a class="reference" href="installation.html#installing-from-source-on-linux-and-other-unix-platforms">2.2. Installing from source on Linux and other UNIX platforms</a><ul>
+<li class="toctree-l3"><a class="reference" href="installation.html#how-to-make-sure-berkeleydb-installed">2.2.1. How to make sure BerkeleyDB installed?</a></li>
+<li class="toctree-l3"><a class="reference" href="installation.html#i-have-berkeleydb-installed-but-make-still-fails-what-now">2.2.2. I have BerkeleyDB installed, but <tt class="docutils literal"><span class="pre">make</span></tt> still fails. What now?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="installation.html#installing-on-windows">2.3. Installing on Windows</a></li>
+<li class="toctree-l2"><a class="reference" href="installation.html#installing-from-source-on-windows">2.4. Installing from source on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="configuration.html">3. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference" href="configuration.html#required-lines">3.1. Required lines</a><ul>
+<li class="toctree-l3"><a class="reference" href="configuration.html#configuring-a-single-node">3.1.1. Configuring a single node</a></li>
+<li class="toctree-l3"><a class="reference" href="configuration.html#single-sample-configuration">3.1.2. Single sample configuration</a></li>
+<li class="toctree-l3"><a class="reference" href="configuration.html#configuring-replicated-nodes">3.1.3. Configuring replicated nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="configuration.html#optional-lines">3.2. Optional lines</a><ul>
+<li class="toctree-l3"><a class="reference" href="configuration.html#replicated-sample-configuration">3.2.1. Replicated sample configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="configuration.html#comments">3.3. Comments</a></li>
+<li class="toctree-l2"><a class="reference" href="configuration.html#client-configuration">3.4. Client configuration</a></li>
+<li class="toctree-l2"><a class="reference" href="configuration.html#tuning">3.5. Tuning</a><ul>
+<li class="toctree-l3"><a class="reference" href="configuration.html#cache-sizes">3.5.1. Cache sizes</a></li>
+<li class="toctree-l3"><a class="reference" href="configuration.html#checkpointing-and-log-cache-sizes">3.5.2. Checkpointing and log cache sizes</a></li>
+<li class="toctree-l3"><a class="reference" href="configuration.html#page-sizes">3.5.3. Page sizes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="running.html">4. Running Keyspace for the first time</a><ul>
+<li class="toctree-l2"><a class="reference" href="running.html#verifying-the-installation">4.1. Verifying the installation</a></li>
+<li class="toctree-l2"><a class="reference" href="running.html#verifying-the-cluster-takes-writes">4.2. Verifying the cluster takes writes</a></li>
+<li class="toctree-l2"><a class="reference" href="running.html#verifying-the-cluster-recovers-from-failures">4.3. Verifying the cluster recovers from failures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="understanding.html">5. Understanding Keyspace</a><ul>
+<li class="toctree-l2"><a class="reference" href="understanding.html#replication">5.1. Replication</a></li>
+<li class="toctree-l2"><a class="reference" href="understanding.html#master-leases">5.2. Master leases</a></li>
+<li class="toctree-l2"><a class="reference" href="understanding.html#catchup">5.3. Catchup</a></li>
+<li class="toctree-l2"><a class="reference" href="understanding.html#dirty-read-commands">5.4. Dirty read commands</a></li>
+<li class="toctree-l2"><a class="reference" href="understanding.html#additional-reading">5.5. Additional reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="http_api.html">6. HTTP API</a></li>
+<li class="toctree-l1"><a class="reference" href="c_api.html">7. C API</a><ul>
+<li class="toctree-l2"><a class="reference" href="c_api.html#installing-from-source-on-linux-and-other-unix-platforms">7.1. Installing from source on Linux and other UNIX platforms</a></li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#installing-from-source-on-windows">7.2. Installing from source on Windows</a></li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#connecting-to-the-keyspace-cluster">7.3. Connecting to the Keyspace cluster</a></li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#setting-timeout-values">7.4. Setting timeout values</a></li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#issuing-single-write-commands">7.5. Issuing single write commands</a><ul>
+<li class="toctree-l3"><a class="reference" href="c_api.html#set-command">7.5.1. <tt class="docutils literal"><span class="pre">set</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#test-and-set-command">7.5.2. <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#rename-command">7.5.3. <tt class="docutils literal"><span class="pre">rename</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#add-command">7.5.4. <tt class="docutils literal"><span class="pre">add</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#delete-command">7.5.5. <tt class="docutils literal"><span class="pre">delete</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#remove-command">7.5.6. <tt class="docutils literal"><span class="pre">remove</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#prune-command">7.5.7. <tt class="docutils literal"><span class="pre">prune</span></tt> command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#issuing-single-read-commands">7.6. Issuing single read commands</a><ul>
+<li class="toctree-l3"><a class="reference" href="c_api.html#get-simple-command">7.6.1. <tt class="docutils literal"><span class="pre">get_simple</span></tt> command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#issuing-list-commands">7.7. Issuing list commands</a><ul>
+<li class="toctree-l3"><a class="reference" href="c_api.html#list-keys-command">7.7.1. <tt class="docutils literal"><span class="pre">list_keys</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#list-keyvalues-command">7.7.2. <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#count-command">7.7.3. <tt class="docutils literal"><span class="pre">count</span></tt> command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#issuing-batched-write-commands">7.8. Issuing batched write commands</a></li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#issuing-batched-read-commands">7.9. Issuing batched read commands</a></li>
+<li class="toctree-l2"><a class="reference" href="c_api.html#understanding-keyspace-status-codes">7.10. Understanding Keyspace status codes</a><ul>
+<li class="toctree-l3"><a class="reference" href="c_api.html#transport-status-code">7.10.1. <tt class="docutils literal"><span class="pre">transport_status</span></tt> code</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#connectivity-status-code">7.10.2. <tt class="docutils literal"><span class="pre">connectivity_status</span></tt> code</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#timeout-status-code">7.10.3. <tt class="docutils literal"><span class="pre">timeout_status</span></tt> code</a></li>
+<li class="toctree-l3"><a class="reference" href="c_api.html#command-status-code">7.10.4. <tt class="docutils literal"><span class="pre">command_status</span></tt> code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference" href="python_api.html">8. Python API</a><ul>
+<li class="toctree-l2"><a class="reference" href="python_api.html#installing-from-source-on-linux-and-other-unix-platforms">8.1. Installing from source on Linux and other UNIX platforms</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#installing-from-source-on-windows">8.2. Installing from source on Windows</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#connecting-to-the-keyspace-cluster">8.3. Connecting to the Keyspace cluster</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#return-values">8.4. Return values</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#setting-timeout-values">8.5. Setting timeout values</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#issuing-single-write-commands">8.6. Issuing single write commands</a><ul>
+<li class="toctree-l3"><a class="reference" href="python_api.html#set-command">8.6.1. <tt class="docutils literal"><span class="pre">set</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#test-and-set-command">8.6.2. <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#rename-command">8.6.3. <tt class="docutils literal"><span class="pre">rename</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#add-command">8.6.4. <tt class="docutils literal"><span class="pre">add</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#delete-command">8.6.5. <tt class="docutils literal"><span class="pre">delete</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#remove-command">8.6.6. <tt class="docutils literal"><span class="pre">remove</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#prune-command">8.6.7. <tt class="docutils literal"><span class="pre">prune</span></tt> command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#issuing-single-read-commands">8.7. Issuing single read commands</a><ul>
+<li class="toctree-l3"><a class="reference" href="python_api.html#get-command">8.7.1. <tt class="docutils literal"><span class="pre">get</span></tt> command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#issuing-list-commands">8.8. Issuing list commands</a><ul>
+<li class="toctree-l3"><a class="reference" href="python_api.html#list-keys-command">8.8.1. <tt class="docutils literal"><span class="pre">list_keys</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#list-keyvalues-command">8.8.2. <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#count-command">8.8.3. <tt class="docutils literal"><span class="pre">count</span></tt> command</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#issuing-batched-write-commands">8.9. Issuing batched write commands</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#issuing-batched-read-commands">8.10. Issuing batched read commands</a></li>
+<li class="toctree-l2"><a class="reference" href="python_api.html#understanding-keyspace-status-codes">8.11. Understanding Keyspace status codes</a><ul>
+<li class="toctree-l3"><a class="reference" href="python_api.html#transport-status-code">8.11.1. <tt class="docutils literal"><span class="pre">transport_status</span></tt> code</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#connectivity-status-code">8.11.2. <tt class="docutils literal"><span class="pre">connectivity_status</span></tt> code</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#timeout-status-code">8.11.3. <tt class="docutils literal"><span class="pre">timeout_status</span></tt> code</a></li>
+<li class="toctree-l3"><a class="reference" href="python_api.html#command-status-code">8.11.4. <tt class="docutils literal"><span class="pre">command_status</span></tt> code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Next topic</h4>
+            <p class="topless"><a href="about.html"
+                                  title="next chapter">1. About Keyspace</a></p>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="about.html" title="1. About Keyspace"
+             >next</a></li>
+        <li><a href="#">home</a> &raquo;</li> 
+      </ul>
+    </div>
+
+</div>
+
+<div class="whoarewe"><div class="rbtop"><div></div></div><div class="rbcontent">
+<b>Who are we?</b>
+<br/><br/>
+<div style="border-bottom: 1px dotted #B0B0B0"></div>
+<br/>
+Scalien is a startup developing open-source,
+cutting-edge distributed systems.<br/>
+<a href="/about">More</a>
+<br/><br/>
+<a href="mailto:info@scalien.com">info@scalien.com</a>
+<br/><br/>
+<a href="http://twitter.com/scalien">Follow us on Twitter</a>
+</div><div class="rbbot"><div></div></div></div>
+
+<div class="copyright">
+Copyright &copy; Scalien, 2009-2010. All rights reserved --- Icons courtesy of <a href="http://dryicons.com" style="color: gray; text-decoration: none;">dryicons.com</a>
+</div>
+
+</div>
+
+  </body>
+</html>

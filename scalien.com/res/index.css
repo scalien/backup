@@ -1,0 +1,164 @@
+a:link {
+	color: rgb(37, 84, 189);
+}
+
+a:visited {
+	color: rgb(37, 84, 189);
+}
+
+img {
+	border: 0;
+}
+
+body {
+	text-align: center;
+}
+
+div.container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+div.logopic {
+	float: left;
+	position: relative;
+	width: 200px;
+}
+
+div.logotxt {
+	float: right;
+	position: relative;
+	top: 20px;
+}
+
+div.separator {
+	clear: both;
+	position: relative;
+	top: 20px;
+	width: 100%;
+	height: 3px;
+	background-color: #E0E0E0;
+}
+
+div.about {
+	width: 100%;
+	padding: 25px;
+	text-align: center;
+	font-family: georgia;
+}
+
+div.keyspace {
+	float: left;
+	margin-left: 50px;
+	width: 500px;
+	/*padding: 25px;*/
+	padding-top: 80px;
+	padding-bottom: 80px;
+	text-align: center;
+	font-family: georgia;
+}
+
+a.plainlink {
+	text-decoration: none;
+	color: black;
+}
+
+a.plainlink:visited {
+	color: black;
+}
+
+div.introducing {
+	padding: 30px;
+	font-size: 34px;
+}
+
+div.explanation {
+	font-size: 24px;
+}
+
+div.insideseparator {
+	clear: both;
+	position: relative;
+	top: 40px;
+	margin-bottom: 40px;
+	width: 100%;
+	height: 3px;
+	background-color: #E0E0E0;
+}
+
+div.keyspace_links {
+	margin-left: 40px;
+}
+
+div.downlink {
+	float: left;
+	position: relative;
+	top: 50px;
+	left: 40px;
+}
+
+div.docslink {
+	float: left;
+	position: relative;
+	top: 50px;
+	left: 85px;
+}
+
+div.execlink {
+	float: left;
+	position: relative;
+	top: 50px;
+	left: 130px;
+}
+
+span.arealink {
+	vertical-align: middle;
+}
+
+.newsfeed {
+	float: right;
+	position: relative;
+	top: 50px;
+	width: 300px;
+	background: url(images/nt.gif) repeat;
+	margin: 1em auto;
+	font-family: georgia;
+}
+
+.whoarewe {
+	float: right;
+	position: relative;
+	top: 50px;
+	width: 300px;
+	background: url(images/nt.gif) repeat;
+	margin: 1em auto;
+	font-family: georgia;
+}
+
+/* generated code begin */
+.rbtop div { background: url(images/tl.gif)
+	no-repeat top left; }
+.rbtop { background: url(images/tr.gif)
+	no-repeat top right; }
+.rbbot div { background: url(images/bl.gif)
+	no-repeat bottom left; }
+.rbbot { background: url(images/br.gif)
+	no-repeat bottom right; }
+.rbtop div, .rbtop, .rbbot div, .rbbot {
+width: 100%;
+height: 7px;
+font-size: 1px;
+}
+.rbcontent { margin: 0 7px; margin:20px; }
+/* generated code end */
+
+div.copyright {
+	clear: both;
+	padding-top: 30px;
+	text-align: center;
+	color: gray;
+	font-family: georgia;
+	font-size: 10px;
+}

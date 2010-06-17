@@ -1,0 +1,1 @@
+date -R -d `bin/date $1`

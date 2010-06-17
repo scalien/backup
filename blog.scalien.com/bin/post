@@ -1,0 +1,29 @@
+# dir path and file path
+P="blog/"`bin/url $1`
+F=$P"/index.html"
+
+# create nice subdirectory
+mkdir -p $P
+
+# create empty post file
+rm -Rf $F
+touch $F
+
+# insert header
+echo "<html><head>" >> $F
+echo "<title>Scalien | Blog - "`bin/title $1`"</title>" >> $F
+cat frame/post_head.html >> $F
+
+# insert blog post
+echo "<h1>"`bin/title $1`"</h1>" >> $F
+echo "<h3>by "`bin/author $1`" on "`bin/date $1`"</h3>" >> $F
+echo "<p>" >> $F
+bin/postbody $1 | sed 's_^$_\</p\>\<p\>_' >> $F
+echo "</p>" >> $F
+echo "<br/><span id='sig'>- "`bin/author $1`"</span>" >> $F
+
+# insert timestamp
+# echo "<div id='timestamp'>Generated: "`date`"</div>" >> $F
+
+# insert tail
+cat frame/post_tail.html >> $F

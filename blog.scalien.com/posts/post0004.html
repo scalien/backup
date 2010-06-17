@@ -1,0 +1,19 @@
+Keyspace 1.2 Release
+
+keyspace-1.2-release
+
+2009/10/01
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+We are releasing version 1.2 of <a href="http://scalien.com/keyspace">Keyspace</a>, our consistently replicated key-value store. The major news is the <b>release of Python and PHP client libraries</b>. Here's the full list of changes.
+
+<ol>
+<li>Added Python and PHP client libraries; this means we have C, Python and PHP covered.</li>
+<li>Added HTTP JSON API; For example, <span class="code">http://localhost:8080/json/listkeys?/test</span> returns the following JSON object: <span class="code">{"/test":["/test/i:0","/test/i:1","/test/i:2"]}</span>.</li>
+<li>Fixed some bugs in server code.</li>
+<li>Fixed some bugs in Python code.</li>
+<li>Removed deprecated latency command.</li>
+</ol>
+
+<a href="http://scalien.com/downloads">Download 1.2 here.</a>

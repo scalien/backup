@@ -1,0 +1,47 @@
+# clear
+rm -Rf blog/*
+
+F="blog/index.html"
+
+# create index file
+touch $F
+
+# insert head
+cat frame/index_head.html >> $F
+
+# for each post, create an entry
+
+for f in `ls -r posts/post*.html` ; do
+	echo "Creating post $f..."
+
+	bin/post $f
+
+	echo -n "<li><a href='"`bin/url $f`"'>" >> $F 
+	echo -n "<span class='title'>"`bin/title $f`"</span>" >> $F
+	echo -n "</a>" >> $F
+	echo    " - by "`bin/author $f`" on "`bin/date $f` >> $F
+	echo -n "<div class='snip'>" >> $F
+	echo -n `bin/snip $f | sed 's_^$_\</p\>\<p\>_'` >> $F
+	echo -n "<p><a class='sniplink' href='"`bin/url $f`"'>Entire post... " >> $F
+	echo -n "("`bin/rest $f | wc -l`" more lines)</a></p>" >> $F
+	echo -n "</div>" >> $F
+	echo -n "</li>" >> $F
+done
+
+# generate latest for scalien.com
+L="/var/www/www.scalien.com/latest.txt"
+f=`ls -r posts/post*.html | head -1`
+echo -n "<a href='http://blog.scalien.com"`bin/url $f`"'>"`bin/title $f`"</a><br/>" > $L
+echo -n "on "`bin/date $f`"<br/>" >> $L
+echo -n "by "`bin/author $f` >> $L
+# also copy to scalien.com res
+cp $L ~scalien/scalien.com/res/
+
+# insert tail
+cat frame/index_tail.html >> $F
+
+# create feed
+bin/feed
+
+# copy style
+cp -R res/* blog/
