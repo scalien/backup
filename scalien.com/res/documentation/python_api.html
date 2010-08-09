@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8. Python API</title>
+    <title>7. Python API</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Keyspace documentation" href="index.html" />
-    <link rel="next" title="9. Java API" href="java_api.html" />
-    <link rel="prev" title="7. C API" href="c_api.html" /> 
+    <link rel="next" title="8. Java API" href="java_api.html" />
+    <link rel="prev" title="6. HTTP API" href="http_api.html" /> 
 
 <link rel="stylesheet" type="text/css" href="http://scalien.com/inside.css" />
 <link rel="shortcut icon" href="http://scalien.com/favicon.ico">
@@ -63,10 +63,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="java_api.html" title="9. Java API"
+          <a href="java_api.html" title="8. Java API"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="c_api.html" title="7. C API"
+          <a href="http_api.html" title="6. HTTP API"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">home</a> &raquo;</li> 
       </ul>
@@ -78,9 +78,9 @@
           <div class="body">
             
   <div class="section" id="python-api">
-<span id="id1"></span><h1>8. Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>7. Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="installing-from-source-on-linux-and-other-unix-platforms">
-<h2>8.1. Installing from source on Linux and other UNIX platforms<a class="headerlink" href="#installing-from-source-on-linux-and-other-unix-platforms" title="Permalink to this headline">¶</a></h2>
+<h2>7.1. Installing from source on Linux and other UNIX platforms<a class="headerlink" href="#installing-from-source-on-linux-and-other-unix-platforms" title="Permalink to this headline">¶</a></h2>
 <p>You will need the <tt class="docutils literal"><span class="pre">python-config</span></tt> program to make the Python libraries. To check if you have it, type:</p>
 <div class="highlight-python"><pre>$ which python-config</pre>
 </div>
@@ -97,11 +97,11 @@
 <p>in the Keyspace folder. This will create the files <tt class="docutils literal"><span class="pre">_keyspace_client.so</span></tt>, <tt class="docutils literal"><span class="pre">keyspace_client.py</span></tt> and <tt class="docutils literal"><span class="pre">keyspace.py</span></tt> in <tt class="docutils literal"><span class="pre">bin/python</span></tt>. Copy these to your Python project, and you are ready to use Keyspace!</p>
 </div>
 <div class="section" id="installing-from-source-on-windows">
-<h2>8.2. Installing from source on Windows<a class="headerlink" href="#installing-from-source-on-windows" title="Permalink to this headline">¶</a></h2>
+<h2>7.2. Installing from source on Windows<a class="headerlink" href="#installing-from-source-on-windows" title="Permalink to this headline">¶</a></h2>
 <p>Currently not supported.</p>
 </div>
 <div class="section" id="connecting-to-the-keyspace-cluster">
-<h2>8.3. Connecting to the Keyspace cluster<a class="headerlink" href="#connecting-to-the-keyspace-cluster" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. Connecting to the Keyspace cluster<a class="headerlink" href="#connecting-to-the-keyspace-cluster" title="Permalink to this headline">¶</a></h2>
 <p>First, import the keyspace client library:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">keyspace</span>
 </pre></div>
@@ -114,11 +114,11 @@
 </div>
 </div>
 <div class="section" id="return-values">
-<h2>8.4. Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<h2>7.4. Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
 <p>All Keyspace functions return <tt class="xref docutils literal"><span class="pre">None</span></tt> on failure.</p>
 </div>
 <div class="section" id="setting-timeout-values">
-<h2>8.5. Setting timeout values<a class="headerlink" href="#setting-timeout-values" title="Permalink to this headline">¶</a></h2>
+<h2>7.5. Setting timeout values<a class="headerlink" href="#setting-timeout-values" title="Permalink to this headline">¶</a></h2>
 <p>Next, if you would like to, change the global timeout. The global timeout specifies the maximum time, in msec, that a Keyspace client call will block your application. The default is 120 seconds:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">set_global_timeout</span><span class="p">(</span><span class="mi">120</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
@@ -130,24 +130,24 @@
 <p>At this point, you are ready to start issuing commands.</p>
 </div>
 <div class="section" id="issuing-single-write-commands">
-<h2>8.6. Issuing single write commands<a class="headerlink" href="#issuing-single-write-commands" title="Permalink to this headline">¶</a></h2>
+<h2>7.6. Issuing single write commands<a class="headerlink" href="#issuing-single-write-commands" title="Permalink to this headline">¶</a></h2>
 <p>The Keyspace write commands are: <tt class="docutils literal"><span class="pre">set</span></tt>, <tt class="docutils literal"><span class="pre">test_and_set</span></tt>, <tt class="docutils literal"><span class="pre">rename</span></tt>, <tt class="docutils literal"><span class="pre">add</span></tt>, <tt class="docutils literal"><span class="pre">delete</span></tt>, <tt class="docutils literal"><span class="pre">remove</span></tt> and <tt class="docutils literal"><span class="pre">prune</span></tt>. Note that all Keyspace keys and values do not have to be NULL-terminated strings (eg. you can set a value to be a binary file).</p>
 <div class="section" id="set-command">
-<h3>8.6.1. <tt class="docutils literal"><span class="pre">set</span></tt> command<a class="headerlink" href="#set-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.1. <tt class="docutils literal"><span class="pre">set</span></tt> command<a class="headerlink" href="#set-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">set</span></tt> command sets a <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> pair, creating a new pair if <tt class="docutils literal"><span class="pre">key</span></tt> did not previously exist, overwriting the old value if it did:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="test-and-set-command">
-<h3>8.6.2. <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command<a class="headerlink" href="#test-and-set-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.2. <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command<a class="headerlink" href="#test-and-set-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command conditionally and atomically sets a <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> pair, but only if the current <tt class="docutils literal"><span class="pre">value</span></tt> matches the user specified value <tt class="docutils literal"><span class="pre">test</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">test_and_set</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="rename-command">
-<h3>8.6.3. <tt class="docutils literal"><span class="pre">rename</span></tt> command<a class="headerlink" href="#rename-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.3. <tt class="docutils literal"><span class="pre">rename</span></tt> command<a class="headerlink" href="#rename-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">rename</span></tt> command atomically renames a <tt class="docutils literal"><span class="pre">key</span></tt>, leaving its <tt class="docutils literal"><span class="pre">value</span></tt> alone:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s">&quot;from&quot;</span><span class="p">,</span> <span class="s">&quot;to&quot;</span><span class="p">)</span>
 </pre></div>
@@ -155,31 +155,31 @@
 <p>If the database looked like <tt class="docutils literal"><span class="pre">from</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> at the beginning, then it changed to <tt class="docutils literal"><span class="pre">to</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> after the successfull <tt class="docutils literal"><span class="pre">rename</span></tt> operation.</p>
 </div>
 <div class="section" id="add-command">
-<h3>8.6.4. <tt class="docutils literal"><span class="pre">add</span></tt> command<a class="headerlink" href="#add-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.4. <tt class="docutils literal"><span class="pre">add</span></tt> command<a class="headerlink" href="#add-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">add</span></tt> command takes the value of the key, parses it as a number and atomically increments it by the given offset:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># returns 13</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># returns 13</span>
 </pre></div>
 </div>
 <p>If the database looked like <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">10</span></tt> at the beginning, then it changed to <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">13</span></tt> after the successfull <tt class="docutils literal"><span class="pre">add</span></tt> operation and the variable <tt class="docutils literal"><span class="pre">result</span></tt> holds the value 13.</p>
 </div>
 <div class="section" id="delete-command">
-<h3>8.6.5. <tt class="docutils literal"><span class="pre">delete</span></tt> command<a class="headerlink" href="#delete-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.5. <tt class="docutils literal"><span class="pre">delete</span></tt> command<a class="headerlink" href="#delete-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">delete</span></tt> command deletes a <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> pair by its <tt class="docutils literal"><span class="pre">key</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="remove-command">
-<h3>8.6.6. <tt class="docutils literal"><span class="pre">remove</span></tt> command<a class="headerlink" href="#remove-command" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">delete</span></tt> command deletes a <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> pair by its <tt class="docutils literal"><span class="pre">key</span></tt> and returns the old <tt class="docutils literal"><span class="pre">value</span></tt>:</p>
+<h3>7.6.6. <tt class="docutils literal"><span class="pre">remove</span></tt> command<a class="headerlink" href="#remove-command" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">remove</span></tt> command deletes a <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> pair by its <tt class="docutils literal"><span class="pre">key</span></tt> and returns the old <tt class="docutils literal"><span class="pre">value</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">)</span>
 <span class="n">client</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">)</span> <span class="c"># returns &quot;value&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="prune-command">
-<h3>8.6.7. <tt class="docutils literal"><span class="pre">prune</span></tt> command<a class="headerlink" href="#prune-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.6.7. <tt class="docutils literal"><span class="pre">prune</span></tt> command<a class="headerlink" href="#prune-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">prune</span></tt> command deletes all <tt class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></tt> pairs where the <tt class="docutils literal"><span class="pre">key</span></tt> starts with the given prefix:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">prune</span><span class="p">(</span><span class="s">&quot;prefix&quot;</span><span class="p">)</span>
 </pre></div>
@@ -194,10 +194,10 @@
 </div>
 </div>
 <div class="section" id="issuing-single-read-commands">
-<h2>8.7. Issuing single read commands<a class="headerlink" href="#issuing-single-read-commands" title="Permalink to this headline">¶</a></h2>
+<h2>7.7. Issuing single read commands<a class="headerlink" href="#issuing-single-read-commands" title="Permalink to this headline">¶</a></h2>
 <p>The only Keyspace single read command is <tt class="docutils literal"><span class="pre">get</span></tt>.</p>
 <div class="section" id="get-command">
-<h3>8.7.1. <tt class="docutils literal"><span class="pre">get</span></tt> command<a class="headerlink" href="#get-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.7.1. <tt class="docutils literal"><span class="pre">get</span></tt> command<a class="headerlink" href="#get-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">get</span></tt> command retrieves a single value from the Keyspace cluster:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">)</span>
 <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">)</span> <span class="c"># returns &quot;value&quot;</span>
@@ -211,10 +211,10 @@
 </div>
 </div>
 <div class="section" id="issuing-list-commands">
-<h2>8.8. Issuing list commands<a class="headerlink" href="#issuing-list-commands" title="Permalink to this headline">¶</a></h2>
+<h2>7.8. Issuing list commands<a class="headerlink" href="#issuing-list-commands" title="Permalink to this headline">¶</a></h2>
 <p>There are two list commands: <tt class="docutils literal"><span class="pre">list_keys</span></tt> and <tt class="docutils literal"><span class="pre">list_key_values</span></tt> and one <tt class="docutils literal"><span class="pre">count</span></tt> command, all have the same set of parameters.</p>
 <div class="section" id="list-keys-command">
-<h3>8.8.1. <tt class="docutils literal"><span class="pre">list_keys</span></tt> command<a class="headerlink" href="#list-keys-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.8.1. <tt class="docutils literal"><span class="pre">list_keys</span></tt> command<a class="headerlink" href="#list-keys-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">list_keys</span></tt> command retrieves all keys from the Keyspace cluster which start with a given <tt class="docutils literal"><span class="pre">prefix</span></tt>. Optionally:</p>
 <ul class="simple">
 <li>listing can start at a specified <tt class="docutils literal"><span class="pre">start_key</span></tt></li>
@@ -238,7 +238,7 @@ client.list_keys("/user:")
 <p>You can also issue the identical <tt class="docutils literal"><span class="pre">dirty_list_keys</span></tt> command, which will be serviced by all nodes, not just the master.</p>
 </div>
 <div class="section" id="list-keyvalues-command">
-<h3>8.8.2. <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command<a class="headerlink" href="#list-keyvalues-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.8.2. <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command<a class="headerlink" href="#list-keyvalues-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command in nearly identical to <tt class="docutils literal"><span class="pre">list_keys</span></tt>, except it also returns the values.</p>
 <p>The <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command retrieves all keys and values from the Keyspace cluster which start with a given <tt class="docutils literal"><span class="pre">prefix</span></tt>. Optionally:</p>
 <ul class="simple">
@@ -259,7 +259,7 @@ client.list_key_values("/user:")
 <p>You can also issue the identical <tt class="docutils literal"><span class="pre">dirty_list_keyvalues</span></tt> command, which will be serviced by all nodes, not just the master.</p>
 </div>
 <div class="section" id="count-command">
-<h3>8.8.3. <tt class="docutils literal"><span class="pre">count</span></tt> command<a class="headerlink" href="#count-command" title="Permalink to this headline">¶</a></h3>
+<h3>7.8.3. <tt class="docutils literal"><span class="pre">count</span></tt> command<a class="headerlink" href="#count-command" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">count</span></tt> command has the same parameters as <tt class="docutils literal"><span class="pre">list_keys</span></tt> or <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt>, but returns the number of keys (or key-value pairs) that they would return. The signature of the function is:</p>
 <div class="highlight-python"><pre>def count(self, prefix = "", start_key = "",
           count = 0, skip = False, forward = True)
@@ -270,7 +270,7 @@ client.count(prefix="prefix")</pre>
 </div>
 </div>
 <div class="section" id="issuing-batched-write-commands">
-<h2>8.9. Issuing batched write commands<a class="headerlink" href="#issuing-batched-write-commands" title="Permalink to this headline">¶</a></h2>
+<h2>7.9. Issuing batched write commands<a class="headerlink" href="#issuing-batched-write-commands" title="Permalink to this headline">¶</a></h2>
 <p>For maximum thruput performance, it is possible to issue many write commands together; this is called batched writing. It will be faster then issuing single write commands because</p>
 <ol class="arabic simple">
 <li>The Keyspace cluster will replicate them together</li>
@@ -288,7 +288,7 @@ client.count(prefix="prefix")</pre>
 </div>
 </div>
 <div class="section" id="issuing-batched-read-commands">
-<h2>8.10. Issuing batched read commands<a class="headerlink" href="#issuing-batched-read-commands" title="Permalink to this headline">¶</a></h2>
+<h2>7.10. Issuing batched read commands<a class="headerlink" href="#issuing-batched-read-commands" title="Permalink to this headline">¶</a></h2>
 <p>It is possible to issue <tt class="docutils literal"><span class="pre">get</span></tt> read commands in a batched fashion. Since <tt class="docutils literal"><span class="pre">get</span></tt> commands are not replicated, only the round-trip time is saved. Nevertheless, batched <tt class="docutils literal"><span class="pre">get</span></tt> can achieve 3-5x higher throughput than single <tt class="docutils literal"><span class="pre">get</span></tt>.</p>
 <p>To send batched <tt class="docutils literal"><span class="pre">get</span></tt> commands, first call <tt class="docutils literal"><span class="pre">begin()</span></tt> function, then issue the <tt class="docutils literal"><span class="pre">get</span></tt> commands, and finally call <tt class="docutils literal"><span class="pre">submit()</span></tt>. The commands are sent on <tt class="docutils literal"><span class="pre">submit()</span></tt>. After the commands complete, the results are returned as a standard python dictionary</p>
 <div class="highlight-python"><pre>client.set("/user:mtrencseni", "mtrencseni_data")
@@ -304,14 +304,14 @@ client.result.key_values()
 </div>
 </div>
 <div class="section" id="understanding-keyspace-status-codes">
-<h2>8.11. Understanding Keyspace status codes<a class="headerlink" href="#understanding-keyspace-status-codes" title="Permalink to this headline">¶</a></h2>
+<h2>7.11. Understanding Keyspace status codes<a class="headerlink" href="#understanding-keyspace-status-codes" title="Permalink to this headline">¶</a></h2>
 <p>Keyspace exposes a rich set of status codes through the client library. These are especially useful for batched operations. After issuing command(s), there are four types of status codes which give information about the state of the Keyspace cluster.</p>
 <p>To print the constant name of the status, use:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">keyspace</span><span class="o">.</span><span class="n">str_status</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="transport-status-code">
-<h3>8.11.1. <tt class="docutils literal"><span class="pre">transport_status</span></tt> code<a class="headerlink" href="#transport-status-code" title="Permalink to this headline">¶</a></h3>
+<h3>7.11.1. <tt class="docutils literal"><span class="pre">transport_status</span></tt> code<a class="headerlink" href="#transport-status-code" title="Permalink to this headline">¶</a></h3>
 <p><tt class="docutils literal"><span class="pre">transport_status</span></tt> tells the application the portion of commands that were sent to the Keyspace cluster:</p>
 <div class="highlight-python"><pre>KEYSPACE_SUCCESS: all commands were sent
 KEYSPACE_PARTIAL: only a portion of the commands
@@ -325,7 +325,7 @@ KEYSPACE_FAILURE: no commands could be sent</pre>
 </div>
 </div>
 <div class="section" id="connectivity-status-code">
-<h3>8.11.2. <tt class="docutils literal"><span class="pre">connectivity_status</span></tt> code<a class="headerlink" href="#connectivity-status-code" title="Permalink to this headline">¶</a></h3>
+<h3>7.11.2. <tt class="docutils literal"><span class="pre">connectivity_status</span></tt> code<a class="headerlink" href="#connectivity-status-code" title="Permalink to this headline">¶</a></h3>
 <p><tt class="docutils literal"><span class="pre">connectivity_status</span></tt> tells the application the network conditions between the client and the Keyspace cluster:</p>
 <div class="highlight-python"><pre>KEYSPACE_SUCCESS:      the master could be found
 KEYSPACE_NOMASTER:     some nodes were reachable,
@@ -339,7 +339,7 @@ KEYSPACE_NOCONNECTION: the entire grid was unreachable within timeouts</pre>
 </div>
 </div>
 <div class="section" id="timeout-status-code">
-<h3>8.11.3. <tt class="docutils literal"><span class="pre">timeout_status</span></tt> code<a class="headerlink" href="#timeout-status-code" title="Permalink to this headline">¶</a></h3>
+<h3>7.11.3. <tt class="docutils literal"><span class="pre">timeout_status</span></tt> code<a class="headerlink" href="#timeout-status-code" title="Permalink to this headline">¶</a></h3>
 <p><tt class="docutils literal"><span class="pre">timeout_status</span></tt> tells the application what timeouts occured, if any:</p>
 <div class="highlight-python"><pre>KEYSPACE_SUCCESS:        no timeout occured, everything went fine
 KEYSPACE_MASTER_TIMEOUT: a master could not be found
@@ -355,7 +355,7 @@ KEYSPACE_GLOBAL_TIMEOUT: the blocking client library call
 </div>
 </div>
 <div class="section" id="command-status-code">
-<h3>8.11.4. <tt class="docutils literal"><span class="pre">command_status</span></tt> code<a class="headerlink" href="#command-status-code" title="Permalink to this headline">¶</a></h3>
+<h3>7.11.4. <tt class="docutils literal"><span class="pre">command_status</span></tt> code<a class="headerlink" href="#command-status-code" title="Permalink to this headline">¶</a></h3>
 <p><tt class="docutils literal"><span class="pre">command_status</span></tt> is the actual return value of a command:</p>
 <div class="highlight-python"><pre>KEYSPACE_SUCCESS:   command succeeded
 KEYSPACE_FAILED:    the command was executed, but
@@ -372,7 +372,7 @@ KEYSPACE_NOSERVICE: the command was not executed</pre>
 </div>
 </div>
 <div class="section" id="header-files">
-<h2>8.12. Header files<a class="headerlink" href="#header-files" title="Permalink to this headline">¶</a></h2>
+<h2>7.12. Header files<a class="headerlink" href="#header-files" title="Permalink to this headline">¶</a></h2>
 <p>Check out <tt class="docutils literal"><span class="pre">src/Application/Keyspace/Client/Python/keyspace.py</span></tt> for a full reference!</p>
 </div>
 </div>
@@ -385,52 +385,52 @@ KEYSPACE_NOSERVICE: the command was not executed</pre>
         <div class="sphinxsidebarwrapper">
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
-<li><a class="reference" href="#">8. Python API</a><ul>
-<li><a class="reference" href="#installing-from-source-on-linux-and-other-unix-platforms">8.1. Installing from source on Linux and other UNIX platforms</a></li>
-<li><a class="reference" href="#installing-from-source-on-windows">8.2. Installing from source on Windows</a></li>
-<li><a class="reference" href="#connecting-to-the-keyspace-cluster">8.3. Connecting to the Keyspace cluster</a></li>
-<li><a class="reference" href="#return-values">8.4. Return values</a></li>
-<li><a class="reference" href="#setting-timeout-values">8.5. Setting timeout values</a></li>
-<li><a class="reference" href="#issuing-single-write-commands">8.6. Issuing single write commands</a><ul>
-<li><a class="reference" href="#set-command">8.6.1. <tt class="docutils literal"><span class="pre">set</span></tt> command</a></li>
-<li><a class="reference" href="#test-and-set-command">8.6.2. <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command</a></li>
-<li><a class="reference" href="#rename-command">8.6.3. <tt class="docutils literal"><span class="pre">rename</span></tt> command</a></li>
-<li><a class="reference" href="#add-command">8.6.4. <tt class="docutils literal"><span class="pre">add</span></tt> command</a></li>
-<li><a class="reference" href="#delete-command">8.6.5. <tt class="docutils literal"><span class="pre">delete</span></tt> command</a></li>
-<li><a class="reference" href="#remove-command">8.6.6. <tt class="docutils literal"><span class="pre">remove</span></tt> command</a></li>
-<li><a class="reference" href="#prune-command">8.6.7. <tt class="docutils literal"><span class="pre">prune</span></tt> command</a></li>
+<li><a class="reference" href="#">7. Python API</a><ul>
+<li><a class="reference" href="#installing-from-source-on-linux-and-other-unix-platforms">7.1. Installing from source on Linux and other UNIX platforms</a></li>
+<li><a class="reference" href="#installing-from-source-on-windows">7.2. Installing from source on Windows</a></li>
+<li><a class="reference" href="#connecting-to-the-keyspace-cluster">7.3. Connecting to the Keyspace cluster</a></li>
+<li><a class="reference" href="#return-values">7.4. Return values</a></li>
+<li><a class="reference" href="#setting-timeout-values">7.5. Setting timeout values</a></li>
+<li><a class="reference" href="#issuing-single-write-commands">7.6. Issuing single write commands</a><ul>
+<li><a class="reference" href="#set-command">7.6.1. <tt class="docutils literal"><span class="pre">set</span></tt> command</a></li>
+<li><a class="reference" href="#test-and-set-command">7.6.2. <tt class="docutils literal"><span class="pre">test_and_set</span></tt> command</a></li>
+<li><a class="reference" href="#rename-command">7.6.3. <tt class="docutils literal"><span class="pre">rename</span></tt> command</a></li>
+<li><a class="reference" href="#add-command">7.6.4. <tt class="docutils literal"><span class="pre">add</span></tt> command</a></li>
+<li><a class="reference" href="#delete-command">7.6.5. <tt class="docutils literal"><span class="pre">delete</span></tt> command</a></li>
+<li><a class="reference" href="#remove-command">7.6.6. <tt class="docutils literal"><span class="pre">remove</span></tt> command</a></li>
+<li><a class="reference" href="#prune-command">7.6.7. <tt class="docutils literal"><span class="pre">prune</span></tt> command</a></li>
 </ul>
 </li>
-<li><a class="reference" href="#issuing-single-read-commands">8.7. Issuing single read commands</a><ul>
-<li><a class="reference" href="#get-command">8.7.1. <tt class="docutils literal"><span class="pre">get</span></tt> command</a></li>
+<li><a class="reference" href="#issuing-single-read-commands">7.7. Issuing single read commands</a><ul>
+<li><a class="reference" href="#get-command">7.7.1. <tt class="docutils literal"><span class="pre">get</span></tt> command</a></li>
 </ul>
 </li>
-<li><a class="reference" href="#issuing-list-commands">8.8. Issuing list commands</a><ul>
-<li><a class="reference" href="#list-keys-command">8.8.1. <tt class="docutils literal"><span class="pre">list_keys</span></tt> command</a></li>
-<li><a class="reference" href="#list-keyvalues-command">8.8.2. <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command</a></li>
-<li><a class="reference" href="#count-command">8.8.3. <tt class="docutils literal"><span class="pre">count</span></tt> command</a></li>
+<li><a class="reference" href="#issuing-list-commands">7.8. Issuing list commands</a><ul>
+<li><a class="reference" href="#list-keys-command">7.8.1. <tt class="docutils literal"><span class="pre">list_keys</span></tt> command</a></li>
+<li><a class="reference" href="#list-keyvalues-command">7.8.2. <tt class="docutils literal"><span class="pre">list_keyvalues</span></tt> command</a></li>
+<li><a class="reference" href="#count-command">7.8.3. <tt class="docutils literal"><span class="pre">count</span></tt> command</a></li>
 </ul>
 </li>
-<li><a class="reference" href="#issuing-batched-write-commands">8.9. Issuing batched write commands</a></li>
-<li><a class="reference" href="#issuing-batched-read-commands">8.10. Issuing batched read commands</a></li>
-<li><a class="reference" href="#understanding-keyspace-status-codes">8.11. Understanding Keyspace status codes</a><ul>
-<li><a class="reference" href="#transport-status-code">8.11.1. <tt class="docutils literal"><span class="pre">transport_status</span></tt> code</a></li>
-<li><a class="reference" href="#connectivity-status-code">8.11.2. <tt class="docutils literal"><span class="pre">connectivity_status</span></tt> code</a></li>
-<li><a class="reference" href="#timeout-status-code">8.11.3. <tt class="docutils literal"><span class="pre">timeout_status</span></tt> code</a></li>
-<li><a class="reference" href="#command-status-code">8.11.4. <tt class="docutils literal"><span class="pre">command_status</span></tt> code</a></li>
+<li><a class="reference" href="#issuing-batched-write-commands">7.9. Issuing batched write commands</a></li>
+<li><a class="reference" href="#issuing-batched-read-commands">7.10. Issuing batched read commands</a></li>
+<li><a class="reference" href="#understanding-keyspace-status-codes">7.11. Understanding Keyspace status codes</a><ul>
+<li><a class="reference" href="#transport-status-code">7.11.1. <tt class="docutils literal"><span class="pre">transport_status</span></tt> code</a></li>
+<li><a class="reference" href="#connectivity-status-code">7.11.2. <tt class="docutils literal"><span class="pre">connectivity_status</span></tt> code</a></li>
+<li><a class="reference" href="#timeout-status-code">7.11.3. <tt class="docutils literal"><span class="pre">timeout_status</span></tt> code</a></li>
+<li><a class="reference" href="#command-status-code">7.11.4. <tt class="docutils literal"><span class="pre">command_status</span></tt> code</a></li>
 </ul>
 </li>
-<li><a class="reference" href="#header-files">8.12. Header files</a></li>
+<li><a class="reference" href="#header-files">7.12. Header files</a></li>
 </ul>
 </li>
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="c_api.html"
-                                  title="previous chapter">7. C API</a></p>
+            <p class="topless"><a href="http_api.html"
+                                  title="previous chapter">6. HTTP API</a></p>
             <h4>Next topic</h4>
             <p class="topless"><a href="java_api.html"
-                                  title="next chapter">9. Java API</a></p>
+                                  title="next chapter">8. Java API</a></p>
           <div id="searchbox" style="display: none">
             <h3>Quick search</h3>
               <form class="search" action="search.html" method="get">
@@ -452,10 +452,10 @@ KEYSPACE_NOSERVICE: the command was not executed</pre>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="java_api.html" title="9. Java API"
+          <a href="java_api.html" title="8. Java API"
              >next</a></li>
         <li class="right" >
-          <a href="c_api.html" title="7. C API"
+          <a href="http_api.html" title="6. HTTP API"
              >previous</a> |</li>
         <li><a href="index.html">home</a> &raquo;</li> 
       </ul>

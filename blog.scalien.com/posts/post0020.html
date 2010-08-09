@@ -1,0 +1,18 @@
+New Scalien Offices
+
+new-scalien-offices
+
+2010/07/30
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+We just settled in to the new Scalien offices. I've posted some <a href="http://www.flickr.com/photos/mtrencseni/sets/72157624614348814/detail/">pictures on Flickr</a>! We found that doing pair programming on the projector on the especially tricky parts of the code is the best way to get past big issues. We now have these pair programming sessions almost every day.
+MARKER
+
+<center><a href="http://www.flickr.com/photos/mtrencseni/4842660613/" title="Pair programming by mtrencseni, on Flickr"><img src="http://farm5.static.flickr.com/4146/4842660613_0e08cd017d.jpg" width="500" height="333" alt="Pair programming" border="0" /></a></center>
+
+We're hard at work on the successor to Keyspace, codenamed <b>ScalienDB</b>. We're taking the experiences from Keyspace to the next level, and building a truly <u>scalable, replicated distributed database</u>. We are again betting on consistent replication (Paxos) as in Keyspace so it has an easy-to-understand distribution model, but can tolerate many-node (including majority) failure and can re-configure itself on the fly. We achieve this by seperating controller and data nodes. In terms of performance, we're reusing the low-level networking code from Keyspace, so ScalienDB will remain fast as hell, but other than that it's a complete rewrite, including the replication code which now supports generalized Paxos (not just majorities). As we get closer to a release, we'll (finally) re-design the scalien.com website. I'm planning to write whitepapers later this year about the new tech in ScalienDB, maybe even a general paper about Paxos-based algorithms (similar to the <a href="http://scalien.com/whitepapers">papers about Keyspace and PaxosLease</a>).
+
+We are planning a beta release later this year. I'll continue to make updates as it makes sense to release more info.
+
+In <b>Keyspace</b> related news, we're going to do a release next week, adding key expiration as requested by many on the <a href="http://groups.google.com/group/keyspace">Keyspace Google Groups</a>. Sorry it took so long, but we're really busy with ScalienDB.

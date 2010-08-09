@@ -1,1 +1,1 @@
-<a href='http://blog.scalien.com/2010/06/18/keyspace-1.7.1-fixes-memleak-issue-in-all-client-libs'>Keyspace 1.7.1: fixes memleak issue in all client libs</a><br/>on 2010/06/18<br/>by <a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+<a href='http://blog.scalien.com/2010/07/30/new-scalien-offices'>New Scalien Offices</a><br/>on 2010/07/30<br/>by <a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
