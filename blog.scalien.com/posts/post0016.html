@@ -14,39 +14,29 @@ On the other hand, this release finally includes the official SWIG based Perl cl
 
 At last, the funkiest addition: the <span class="code">keyspace-config</span> shell script, which will create your Keyspace config files for you --- with ASCII Art to cheer you up! Here's a sample session:
 MARKER
-<pre style="font-size:10px">
-~/Code/Keyspace $ ./keyspace-config 
 
+<div style="background: #ffffff; overflow:auto;width:auto;color:black;background:#f0f0f0;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;font-size:10px"><pre style="margin: 0; line-height: 125%">~/Code/Keyspace $ ./keyspace-config<br/>
 Welcome to the Keyspace configuration file generator!
------------------------------------------------------
-
--> This script will ask you a bunch of questions and then generate the Keyspace configuration files.
--> The files are only generated at the end, you can always start over by hitting CTRL+C.
-
+-----------------------------------------------------<br/>
+-&gt; This script will ask you a bunch of questions and then generate the Keyspace configuration files.
+-&gt; The files are only generated at the end, you can always start over by hitting CTRL+C.<br/>
 Is this a replicated or a single configuration? [R/s]: r
 How many nodes will the Keyspace cluster consist of? [3]: 
-Will you be running all Keyspace nodes on the *same* host (eg. for testing)? [Y/n]: n
-
--> Assuming identical Keyspace configurations on all 3 nodes!
-
+Will you be running all Keyspace nodes on the *same* host (eg. for testing)? [Y/n]: n<br/>
+-&gt; Assuming identical Keyspace configurations on all 3 nodes!<br/>
 What is the IP address (or domain name) of the 0. node? 192.168.137.50
 What is the IP address (or domain name) of the 1. node? 192.168.137.51
 What is the IP address (or domain name) of the 2. node? 192.168.137.52
 Where should Keyspace store the database files? [/var/keyspace]: 
 Port number for Paxos replication? [10000]: 
 Port number for HTTP? [8080]: 
-Port number for Keyspace protocol? [7080]: 
-
--> Writing configuration file of the 0. node to keyspace.0.conf
--> Writing configuration file of the 1. node to keyspace.1.conf
--> Writing configuration file of the 2. node to keyspace.2.conf
-
--> The connection string on the client side is: 192.168.137.50:7080, 192.168.137.51:7080, 192.168.137.52:7080
-
-Do you wish to see an informative ascii art describing your configuration? [Y/n]: 
-                                                                                                      
-  client(s)                         client(s)                         client(s)                       
-                                                                                                      
+Port number for Keyspace protocol? [7080]: <br/>
+-&gt; Writing configuration file of the 0. node to keyspace.0.conf
+-&gt; Writing configuration file of the 1. node to keyspace.1.conf
+-&gt; Writing configuration file of the 2. node to keyspace.2.conf<br/>
+-&gt; The connection string on the client side is: 192.168.137.50:7080, 192.168.137.51:7080, 192.168.137.52:7080<br/>
+Do you wish to see an informative ascii art describing your configuration? [Y/n]: <br/>
+  client(s)                         client(s)                         client(s)<br/>
     ^                                 ^                                 ^                             
     |                                 |                                 |                             
     |            node 0               |            node 1               |            node 2           
@@ -72,11 +62,8 @@ Do you wish to see an informative ascii art describing your configuration? [Y/n]
     |                                 |                                 |                             
     |                                 |                                 |                             
     |                                 |                                 |                             
-----+-------- [replication] ----------+-------- [replication] ----------+-------- [replication] ------
-
-
--> Writing ascii art to keyspace_art.txt
--> Done.
-</pre>
+----+-------- [replication] ----------+-------- [replication] ----------+-------- [replication] ------<br/>
+-&gt; Writing ascii art to keyspace_art.txt
+-&gt; Done.</pre></div>
 
 Cheers!

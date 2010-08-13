@@ -1,0 +1,1 @@
+vi posts/`ls -l posts |tail -1| awk '{ print $8 }'`

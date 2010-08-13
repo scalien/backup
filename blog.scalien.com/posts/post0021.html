@@ -1,0 +1,55 @@
+Keyspace 1.8: Now features key expiry
+
+keyspace-1.8-now-features-key-expiry
+
+2010/08/11
+
+<a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+
+Keyspace 1.8 is out, featuring key expiry in all the client libs: Python, Java, .NET, PHP, Ruby, Perl, HTTP!
+
+This enables Keyspace to be used instead of Memcached in some use-cases. Unlike Memcached, Keyspace stores key expiries safely on disk, so keys are expired even if servers restart.
+MARKER
+
+Key expiry commands are implemented as an overlay feature. This means that when you set an expiry on a key, Keyspace does not check whether the key exists, it just remembers that it should expire (delete) thay key at the given time. You can create the key at a later time, overwrite it, rename it, delete it, re-create it, all these operations do not affect the expiry.
+
+There are three key expiry commands in Keyspace:
+
+<ul>
+<li><span class="code">set_expiry(k, t)</span>: set the key-value pair <span class="code">k => v</span> to expire in <span class="code">t</span> seconds</li>
+<li><span class="code">remove_expiry(k)</span>: remove any outstanding expiries on the the key-value pair <span class="code">k => v</span></li>
+<li><span class="code">clear_expiries()</span>: remove all outstanding expiries in the database</li>
+</ul>
+
+For the actual commands check the section of the <a href="http://scalien.com/documentation">documentation</a> corresponding to your programming language.
+
+Key expiry is implemented as an overlay feature to enable developers to mix and match these commands with the regular Keyspace commands to match their desired semantics. For example, if a developer thinks that setting (changing) a key-value pair should automatically remove any expiries, he can create a wrapper library which issues <span class="code">remove_expiry(k)</span> command before issuing <span class="code">set(k, v)</span>.
+
+When using key expiry commands in replicated mode, you should use NTP (Network Time Protocol) to synchronize the server's clock. Note that other than key expiries, Keyspace does not require or assume clock synchrony. When the Keyspace master receives a <span class="code">set_expiry(k, t)</span> command, it adds t seconds to the current timestamp and replicates that timestamp. Key expiry will occur at that time by the actual master's system clock. If the master fails and another node becomes the master, key expiry will still occur at that time, but by the new master's system clock.
+
+Finally, some Python sample code which illustrates key expiry in action:
+
+<div style="background: #ffffff; overflow:auto;width:auto;color:black;background:#f0f0f0;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">import</span> keyspace
+<span style="color: #000080; font-weight: bold">import</span> time<br/>
+<span style="color: #008800; font-style: italic"># connect to a single keyspace instance</span>
+client = keyspace.Client([<span style="color: #0000FF">&quot;localhost:7080&quot;</span>])<br/>
+<span style="color: #008800; font-style: italic"># clear all keys</span>
+client.prune(<span style="color: #0000FF">&quot;&quot;</span>)<br/>
+<span style="color: #008800; font-style: italic"># clear all expiries</span>
+client.clear_expiries()<br/>
+<span style="color: #008800; font-style: italic"># create some keys</span>
+client.set(<span style="color: #0000FF">&quot;foo1&quot;</span>, <span style="color: #0000FF">&quot;bar1&quot;</span>)
+client.set(<span style="color: #0000FF">&quot;foo2&quot;</span>, <span style="color: #0000FF">&quot;bar2&quot;</span>)
+client.set(<span style="color: #0000FF">&quot;foo3&quot;</span>, <span style="color: #0000FF">&quot;bar3&quot;</span>)<br/>
+<span style="color: #008800; font-style: italic"># expire foo1 and foo2 in 10 seconds</span>
+client.set_expiry(<span style="color: #0000FF">&quot;foo1&quot;</span>, <span style="color: #0000FF">10</span>)
+client.set_expiry(<span style="color: #0000FF">&quot;foo2&quot;</span>, <span style="color: #0000FF">10</span>)<br/>
+<span style="color: #008800; font-style: italic"># changed my mind about foo2</span>
+client.remove_expiry(<span style="color: #0000FF">&quot;foo2&quot;</span>)<br/>
+<span style="color: #008800; font-style: italic"># sleep for 10 seconds</span>
+time.sleep(<span style="color: #0000FF">10</span>)<br/>
+<span style="color: #008800; font-style: italic"># now list db</span>
+kv = client.list_key_values(<span style="color: #0000FF">&quot;&quot;</span>)
+<span style="color: #000080; font-weight: bold">for</span> k <span style="font-weight: bold">in</span> kv:
+  <span style="color: #000080; font-weight: bold">print</span>(<span style="color: #0000FF">&quot;%s =&gt; %s&quot;</span> % (k, kv[k])) <span style="color: #008800; font-style: italic"># foo2 and foo3 are listed </span></pre></div>
+
