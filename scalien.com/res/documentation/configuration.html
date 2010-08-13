@@ -181,15 +181,15 @@ log.timestamping = false</pre>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">database</span><span class="o">.</span><span class="n">directDB</span> <span class="o">=</span> <span class="n">true</span>
 </pre></div>
 </div>
-<p>Turn off system buffering of Berkeley DB database files to avoid double caching. See the <a class="reference" href="http://www.oracle.com/technology/documentation/berkeley-db/db/api_reference/C/envset_flags.html">BerkeleyDB reference</a> for more.</p>
+<p>Turn off system buffering of Berkeley DB database files to avoid double caching. See the <a class="reference external" href="http://www.oracle.com/technology/documentation/berkeley-db/db/api_reference/C/envset_flags.html">BerkeleyDB reference</a> for more.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">database</span><span class="o">.</span><span class="n">txnNoSync</span> <span class="o">=</span> <span class="n">false</span>
 </pre></div>
 </div>
-<p>If set, Berkeley DB will not write or synchronously flush the log on transaction commit. See the <a class="reference" href="http://www.oracle.com/technology/documentation/berkeley-db/db/api_reference/C/envset_flags.html">BerkeleyDB reference</a> for more.</p>
+<p>If set, Berkeley DB will not write or synchronously flush the log on transaction commit. See the <a class="reference external" href="http://www.oracle.com/technology/documentation/berkeley-db/db/api_reference/C/envset_flags.html">BerkeleyDB reference</a> for more.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">database</span><span class="o">.</span><span class="n">txnWriteNoSync</span> <span class="o">=</span> <span class="n">true</span>
 </pre></div>
 </div>
-<p>If set, Berkeley DB will write, but will not synchronously flush, the log on transaction commit. See the <a class="reference" href="http://www.oracle.com/technology/documentation/berkeley-db/db/api_reference/C/envset_flags.html">BerkeleyDB reference</a> for more.</p>
+<p>If set, Berkeley DB will write, but will not synchronously flush, the log on transaction commit. See the <a class="reference external" href="http://www.oracle.com/technology/documentation/berkeley-db/db/api_reference/C/envset_flags.html">BerkeleyDB reference</a> for more.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">database</span><span class="o">.</span><span class="n">pageSize</span> <span class="o">=</span> <span class="mi">65536</span>
 </pre></div>
 </div>
@@ -253,7 +253,7 @@ log.timestamping = false</pre>
 </div>
 <div class="section" id="tuning">
 <h2>3.6. Tuning<a class="headerlink" href="#tuning" title="Permalink to this headline">¶</a></h2>
-<p>Version 1.x of Keyspace uses <a class="reference" href="http://www.oracle.com/technology/products/berkeley-db/index.html">Oracle&#8217;s BerkeleyDB</a> transactional b-tree as its disk-based datastore. Configuration options that start with <tt class="docutils literal"><span class="pre">database.</span></tt> are all BDB related.</p>
+<p>Version 1.x of Keyspace uses <a class="reference external" href="http://www.oracle.com/technology/products/berkeley-db/index.html">Oracle&#8217;s BerkeleyDB</a> transactional b-tree as its disk-based datastore. Configuration options that start with <tt class="docutils literal"><span class="pre">database.</span></tt> are all BDB related.</p>
 <div class="section" id="cache-sizes">
 <h3>3.6.1. Cache sizes<a class="headerlink" href="#cache-sizes" title="Permalink to this headline">¶</a></h3>
 <p>As a rule of thumb, BDB will be much faster if the entire database fits into RAM. Under heavy, non-localized database load you will see performance degrade if your database does not fit into the amount of memory specified in <tt class="docutils literal"><span class="pre">database.cacheSize</span></tt> (default is 500MB).</p>
@@ -281,24 +281,24 @@ log.timestamping = false</pre>
         <div class="sphinxsidebarwrapper">
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
-<li><a class="reference" href="#">3. Configuration</a><ul>
-<li><a class="reference" href="#keyspace-config-shell-script">3.1. keyspace-config shell script</a></li>
-<li><a class="reference" href="#required-lines">3.2. Required lines</a><ul>
-<li><a class="reference" href="#configuring-a-single-node">3.2.1. Configuring a single node</a></li>
-<li><a class="reference" href="#single-sample-configuration">3.2.2. Single sample configuration</a></li>
-<li><a class="reference" href="#configuring-replicated-nodes">3.2.3. Configuring replicated nodes</a></li>
+<li><a class="reference external" href="#">3. Configuration</a><ul>
+<li><a class="reference external" href="#keyspace-config-shell-script">3.1. keyspace-config shell script</a></li>
+<li><a class="reference external" href="#required-lines">3.2. Required lines</a><ul>
+<li><a class="reference external" href="#configuring-a-single-node">3.2.1. Configuring a single node</a></li>
+<li><a class="reference external" href="#single-sample-configuration">3.2.2. Single sample configuration</a></li>
+<li><a class="reference external" href="#configuring-replicated-nodes">3.2.3. Configuring replicated nodes</a></li>
 </ul>
 </li>
-<li><a class="reference" href="#optional-lines">3.3. Optional lines</a><ul>
-<li><a class="reference" href="#replicated-sample-configuration">3.3.1. Replicated sample configuration</a></li>
+<li><a class="reference external" href="#optional-lines">3.3. Optional lines</a><ul>
+<li><a class="reference external" href="#replicated-sample-configuration">3.3.1. Replicated sample configuration</a></li>
 </ul>
 </li>
-<li><a class="reference" href="#comments">3.4. Comments</a></li>
-<li><a class="reference" href="#client-configuration">3.5. Client configuration</a></li>
-<li><a class="reference" href="#tuning">3.6. Tuning</a><ul>
-<li><a class="reference" href="#cache-sizes">3.6.1. Cache sizes</a></li>
-<li><a class="reference" href="#checkpointing-and-log-cache-sizes">3.6.2. Checkpointing and log cache sizes</a></li>
-<li><a class="reference" href="#page-sizes">3.6.3. Page sizes</a></li>
+<li><a class="reference external" href="#comments">3.4. Comments</a></li>
+<li><a class="reference external" href="#client-configuration">3.5. Client configuration</a></li>
+<li><a class="reference external" href="#tuning">3.6. Tuning</a><ul>
+<li><a class="reference external" href="#cache-sizes">3.6.1. Cache sizes</a></li>
+<li><a class="reference external" href="#checkpointing-and-log-cache-sizes">3.6.2. Checkpointing and log cache sizes</a></li>
+<li><a class="reference external" href="#page-sizes">3.6.3. Page sizes</a></li>
 </ul>
 </li>
 </ul>
