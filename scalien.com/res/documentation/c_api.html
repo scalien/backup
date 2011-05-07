@@ -344,7 +344,7 @@ for (keyspace_result_begin(result);
 {
   char* key;
   unsigned keylen;
-  if (keyspace_result_value(result, (const void**) &amp;key,
+  if (keyspace_result_key(result, (const void**) &amp;key,
       &amp;keylen) != KEYSPACE_SUCCESS)
   {
     fprintf(stderr, "list_keys failed");

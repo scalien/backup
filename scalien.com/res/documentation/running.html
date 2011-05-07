@@ -110,23 +110,23 @@ Last replication round was 0 bytes, took 0 msec, thruput was 1 KB/sec</pre>
 <div class="section" id="verifying-the-cluster-takes-writes">
 <h2>4.2. Verifying the cluster takes writes<a class="headerlink" href="#verifying-the-cluster-takes-writes" title="Permalink to this headline">¶</a></h2>
 <p>Using the HTTP output from above, find the master node. Next, send a <tt class="docutils literal"><span class="pre">SET</span></tt> command to the master using the HTTP API, by typing the following into your browser:</p>
-<div class="highlight-python"><pre>http://&lt;ip-address-of-master-node&gt;:8080/set?testkey,testvalue</pre>
+<div class="highlight-python"><pre>http://&lt;ip-address-of-master-node&gt;:8080/set?key=testkey&amp;value=testvalue</pre>
 </div>
 <p>If everything is working, it replies with <tt class="docutils literal"><span class="pre">OK</span></tt>. Now make sure the value was stored properly:</p>
-<div class="highlight-python"><pre>http://&lt;ip-address-of-master-node&gt;:8080/get?testkey</pre>
+<div class="highlight-python"><pre>http://&lt;ip-address-of-master-node&gt;:8080/get?key=testkey</pre>
 </div>
 <p>It should print <tt class="docutils literal"><span class="pre">testvalue</span></tt>. Next, make sure the command was replicated to the other <tt class="docutils literal"><span class="pre">n-1</span></tt> nodes. Non-master nodes do not serve <tt class="docutils literal"><span class="pre">GET</span></tt> request (only the master), but they do serve <tt class="docutils literal"><span class="pre">DIRTYGET</span></tt> request:</p>
-<div class="highlight-python"><pre>http://&lt;ip-address-of-non-master-node&gt;:8080/dirtyget?testkey</pre>
+<div class="highlight-python"><pre>http://&lt;ip-address-of-non-master-node&gt;:8080/dirtyget?key=testkey</pre>
 </div>
 <p>It should print <tt class="docutils literal"><span class="pre">testvalue</span></tt>. For a complete command reference, see the next section.</p>
 </div>
 <div class="section" id="verifying-the-cluster-recovers-from-failures">
 <h2>4.3. Verifying the cluster recovers from failures<a class="headerlink" href="#verifying-the-cluster-recovers-from-failures" title="Permalink to this headline">¶</a></h2>
 <p>Next, shut down one of the nodes (eg. using <tt class="docutils literal"><span class="pre">Control+C</span></tt>). Verify that the node is not up by looking at its HTTP port. Next, issue a <tt class="docutils literal"><span class="pre">SET</span></tt> to the remaining nodes:</p>
-<div class="highlight-python"><pre>http://&lt;ip-address-of-master-node&gt;:8080/set?testkey2,testvalue2</pre>
+<div class="highlight-python"><pre>http://&lt;ip-address-of-master-node&gt;:8080/set?key=testkey2&amp;value=testvalue2</pre>
 </div>
 <p>Launch the node again, and after 7 seconds, once it reports the master, make sure it has caught up to the rest of the cluster by querying <tt class="docutils literal"><span class="pre">testkey2</span></tt> from it:</p>
-<div class="highlight-python"><pre>http://&lt;ip-address-of-non-master-node&gt;:8080/dirtyget?testkey2</pre>
+<div class="highlight-python"><pre>http://&lt;ip-address-of-non-master-node&gt;:8080/dirtyget?key=testkey2</pre>
 </div>
 <p>It should print <tt class="docutils literal"><span class="pre">testvalue2</span></tt>.</p>
 <p>You can think of any number of such tests. To fully understand how Keyspace handles failures, how it catches up nodes, please read the section Understanding Keyspace.</p>

@@ -1,1 +1,1 @@
-<a href='http://blog.scalien.com/2010/08/11/keyspace-1.8-now-features-key-expiry'>Keyspace 1.8: Now features key expiry</a><br/>on 2010/08/11<br/>by <a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>
+<a href='http://blog.scalien.com/2010/11/29/keyspace-1.9-released-important-bugfixes'>Keyspace 1.9 released - important bugfixes</a><br/>on 2010/11/29<br/>by <a href="http://blog.scalien.com/ecard/mtrencseni">Marton Trencseni</a>

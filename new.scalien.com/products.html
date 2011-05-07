@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta  http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta name="author" content="Scalien" />
+	<meta name="description" content="Scalien scalable and replicated databases, custom development, consulting." />
+	<meta name="keywords" content="scalien, scaliendb, keyspace, scalable, replicated, paxos, fault tolerance" />
+	<title>Scalien</title>
+	<link rel="shortcut icon" href="http://scalien.com/favicon.ico" /></head>
+	<link rel="stylesheet" type="text/css" href="common.css" />
+	<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+
+	<div class="top-container-background">
+		<div class="top-container">
+			<a href="index.html"><img src="logo.png" style="float:left" border="0" /></a>
+			<div class="top-menu">
+				<a href="products.html"><img border="0" src="top-products-grey.png" onmouseover="changeImageOnMouseOver(this, 'top-products-white.png')" /></a>
+				<a href="#"><img border="0" src="top-documentation-grey.png" onmouseover="changeImageOnMouseOver(this, 'top-documentation-white.png')" /></a>
+				<!-- <a href="#"><img border="0" src="top-customers-grey.png" onmouseover="changeImageOnMouseOver(this, 'top-customers-white.png')" /></a> -->
+				<a href="#"><img border="0" src="top-company-grey.png" onmouseover="changeImageOnMouseOver(this, 'top-company-white.png')" /></a>
+				<a href="#"><img border="0" src="top-blog-grey.png" onmouseover="changeImageOnMouseOver(this, 'top-blog-white.png')" /></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="sub-menu"><div>
+		<div class="sub-menu-title">PRODUCTS</div>
+		<div class="sub-menu-item" style="margin-right: 0px"><a href="#">Downloads</a></div>
+		<!-- <div class="sub-menu-item"><a href="#">Pricing</a> &nbsp;&nbsp;&lsaquo;&nbsp;&nbsp;</div>
+		<div class="sub-menu-item"><a href="#">Support</a> &nbsp;&nbsp;&lsaquo;&nbsp;&nbsp;</div>
+		<div class="sub-menu-item"><a href="#">Licensing</a> &nbsp;&nbsp;&lsaquo;&nbsp;&nbsp;</div> -->
+		<div class="sub-menu-item"><a href="opensource.html">Open Source</a> &nbsp;&nbsp;&lsaquo;&nbsp;&nbsp;</div>
+		<!-- <div class="sub-menu-item"><a href="#">Benefits</a> &nbsp;&nbsp;&lsaquo;&nbsp;&nbsp;</div> -->
+		<div class="sub-menu-item"><a href="products.html">Architecture</a> &nbsp;&nbsp;&lsaquo;&nbsp;&nbsp;</div>
+		<div class="clear-boxes"></div>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow content"><div class="middle-container-padding">
+		<div class="title">Architecture</div>
+		<div class="sub-title">Overview</div>
+			<p>
+				ScalienDB combines technologies of the scalable, highly-available distributed systems with the dependability and reliability of traditional relational databases, to ensure very high performance read and write transactions across a dynamically scalable cluster of commodity servers. A ScalienDB cluster consists of three types of roles:
+				<ul>
+					<li>controllers</li>
+					<li>data nodes</li>
+					<li>clients</li>
+					<li>management console</li>
+				</ul>
+			<div style="margin-top: 20px; margin-bottom: 20px; text-align: center"><img src="arch1.jpg" /></div>
+			The controller nodes are the "brain" of the system and control the rest of the cluster. The data nodes are where user data is stored in a high-performance, linear on-disk storage engine that scales to terabytes of data. The client applications -- such as a webserver -- use the ScalienDB client library to connect to the database. The client library is "smart" and handles all ScalienDB features such as automatic failover, data migration and fast batched data loads and dumps. ScalienDB is open source, written in C++, and runs on Linux, Microsoft Windows and MacOS X.
+			</p>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow content"><div class="middle-container-padding">
+		<div class="sub-title">Controllers</div>
+			<p>
+				The controller nodes act as the "brain" of the ScalienDB cluster and communicate among themselves to ensure the fault-tolerance and high-availability of the entire distributed database system. Data nodes are managed by the controllers to achieve linear read and write scalability and failover in case a data node goes down. Internally, the controller nodes use the Paxos protocol to guarantee that the ScalienDB cluster is always in a well-defined, consistent state without the possibility of a "split-brain" scenario. One of the controller nodes acts as the master, which simplifies management tasks for the users and administrators of the database. The controllers contain the following modules:
+				<ul>
+					<li>manage cluster membership of data nodes for scalability and fault-tolerance</li>
+					<li>assign data nodes into quorums for replication</li>
+					<li>store the database schema (databases, tables) using Paxos to protect against "split-brain" scenarios</li>
+					<li>migrate shards across the cluster for manual or dynamic load and storage balancing</li>
+				</ul>
+				It is possible to use one, two, three or more controller nodes in the ScalienDB setup depending on the level of fault-tolerance desired by the customer use-case. It is recommended to use one controller node in test environments and three or five nodes in production.
+			</p>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow content"><div class="middle-container-padding">
+		<div class="sub-title">Data nodes</div>
+			<p>
+				The data nodes are the workhorses of the distributed ScalienDB architecture. The data nodes, like the controllers, use a variant of the Paxos algorithm to ensure that the database is always in a consistent, well-defined state. The use of Paxos throughout the ScalienDB system guarantees single ACID and read-your-write semantics. Data nodes are assigned into quorums by the controllers for replication, which ensures exceptionally high-availability and fault-tolerance of the database. The data nodes use a high-performance linear on-disk storage engine hand-crafted for ScalienDB to store user data in a compact way. The ScalienDB storage engine is the best of both worlds, as it combines technologies from traditional architectures such as transactional redo logging to eliminate any possibility of data loss and cutting-edge technologies such as linearized disk I/O introduced by Google's Bigtable system. The ScalienDB runs exceptionally well both on traditional spinning disk media and new solid state drives (SSDs). This combination of technologies assures that ScalienDB delivers both the dependability of old-school databases while opening the door to unlimited data and throughput scaling on conventional commodity hardware running Linux.
+			</p>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow content"><div class="middle-container-padding">
+		<div class="sub-title">Clients</div>
+			<p>
+				The client library is a fully featured "smart client" that makes it easy for the programmer to quickly write ScalienDB-based applications without worrying about the distributed nature of the database. The client is fully aware of the state of the ScalienDB cluster and hides any failover or shard migration events from the user for maximum conveniance and minimal development overhead. The client supports distributing reads across quorum members for linear read scalability and distributing writes to different quorums for linear write scalability. Additionally, writes may be sent in a batched manner in case of bulk loading for maximum throughput. ScalienDB client libraries are available for Java, Python, PHP and C++, with each client library politely adhering to the idioms of its language for maximum programmer friendliness.
+			</p>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow content"><div class="middle-container-padding">
+		<div class="sub-title">Data model</div>
+			<p>
+				ScalienDB is a NoSQL database with a key-value data model. At the highest level, data is organized into databases, then into tables, just like in traditional SQL databases. Tables are namespaces for key-value data, which may be split into several shards, which are then mapped into quorums and stored on data nodes for scalability and durability. Keys and values in ScalienDB are not strongly typed, which allows for maximum flexibility when developing applications against our API. Keys are limited to 64K length, while values may be practically unlimited in length (2^32 bytes), which means ScalienDB can be used for practically all data management tasks. This architecture combines the best of relational and NoSQL models: it features databases and tables to organize data while maximizing the flexibility for user-data by the use key-values and avoiding any locking and other single points of failure.
+			</p>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow content"><div class="middle-container-padding">
+		<div class="sub-title">Management console</div>
+			<p>
+				Administrative tasks are performed on the web-based management console using a browser like Mozilla Firefox or Google Chrome. The management console is fully featured and one-click supports all ScalienDB operations such as:
+				<ul>
+					<li>monitoring the cluster state</li>
+					<li>monitoring catchup and shard migration progress</li>
+					<li>create, rename, delete databases</li>
+					<li>create, rename, delete, truncate tables</li>
+					<li>create, delete quorums</li>
+					<li>add, remove data nodes from quorums</li>
+					<li>shard splitting and shard migration</li>
+				</ul>
+				ScalienDB has a built-in HTTP server for performing management operations. This allows administrators and developers to integrate these tasks into their broader management suite using the powerful ScalienDB JSON API.
+			</p>
+	</div></div>
+
+	<div class="middle-container rounded-corners outside-glow bottom-bar"><div class="middle-container-padding">
+		<p><b><a href="products.html" class="bottom-bar">Products</a> &nbsp;&nbsp;&raquo;&nbsp;&nbsp;</b> <a href="products.html" class="bottom-bar">Architecture</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Benefits</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="opensource.html" class="bottom-bar">Open Source</a>  &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Licensing</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Support</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Pricing</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Downloads</a></p>
+
+		<p><b><a href="#" class="bottom-bar">Documentation</a> &nbsp;&nbsp;&raquo;&nbsp;&nbsp;</b> <a href="#" class="bottom-bar">Whitepapers</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Technical reports</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Developers</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Administrators</a>&nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Help</a></p>
+
+		<p><b><a href="#" class="bottom-bar">Customers</a> &nbsp;&nbsp;&raquo;&nbsp;&nbsp;</b> <a href="#" class="bottom-bar">Use Cases</a></p>
+
+		<p><b><a href="#" class="bottom-bar">Company</a> &nbsp;&nbsp;&raquo;&nbsp;&nbsp;</b> <a href="#" class="bottom-bar">Founders</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">History</a>  &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Social</a> &nbsp;&nbsp;&rsaquo;&nbsp;&nbsp; <a href="#" class="bottom-bar">Contact</a></p>
+
+		<p><b><a href="#" class="bottom-bar">Blog</a> &nbsp;&nbsp;&raquo;&nbsp;&nbsp;</b> <a href="#" class="bottom-bar">Twitter</a></p>		
+	</div></div>
+
+	<div class="middle-container footer-line">
+		<div style="float:left">
+			<img src="blocks.png" style="height: 20px; vertical-align:middle; margin-right: 6px"/>Copyright © 2011 Scalien. All rights reserved.
+		</div>
+		<div style="float:right">
+			<a href="#">Contact Us</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#">Copyright</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#">Privacy Policy</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#">Legal</a>
+		</div>
+	</div>
+
+</body>
+</html>
